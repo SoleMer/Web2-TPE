@@ -7,7 +7,7 @@ function connect(){
 function getProducts(){
     //$db es un objeto php que crea un acceso a la ddbb
     $db=connetct();
-    $query = $db->prepare('SELECT * FROM producto');
+    $query = $db->prepare('SELECT * FROM producto ORDER BY id_coleccion ASC');
     $query->execute();
     return $query->fetchAll(PDO::FETCH_OBJ);
 }

@@ -13,7 +13,6 @@ switch ($urlParts[0]) {
         break;
     
     default:
-        $result = getProduct();
-        var_dump(result);
+        echo showProduct();
         break;
 }
