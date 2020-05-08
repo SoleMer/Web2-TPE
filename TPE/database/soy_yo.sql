@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-05-2020 a las 16:19:16
+-- Tiempo de generación: 08-05-2020 a las 17:09:09
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.4
 
@@ -24,23 +24,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categoria`
+-- Estructura de tabla para la tabla `coleccion`
 --
 
-CREATE TABLE `categoria` (
-  `id_categoria` int(11) NOT NULL,
+CREATE TABLE `coleccion` (
+  `id_coleccion` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `categoria`
+-- Volcado de datos para la tabla `coleccion`
 --
 
-INSERT INTO `categoria` (`id_categoria`, `nombre`) VALUES
-(1, 'Estudiantil'),
-(2, 'Infantil'),
-(3, 'Hogar'),
-(4, 'COVID-19');
+INSERT INTO `coleccion` (`id_coleccion`, `nombre`) VALUES
+(1, 'Pekes'),
+(2, 'COVID-19'),
+(3, 'Estudiar'),
+(4, 'Hogar');
 
 -- --------------------------------------------------------
 
@@ -52,28 +52,28 @@ CREATE TABLE `producto` (
   `id_producto` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `precio` decimal(10,0) NOT NULL,
-  `id_categoria` int(11) NOT NULL
+  `id_coleccion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`id_producto`, `nombre`, `precio`, `id_categoria`) VALUES
-(1, 'Mochila emoji', '1500', 1),
-(2, 'mochila Simpson', '1500', 1),
-(3, 'Individuales', '150', 3),
-(4, 'Estuche higienico', '250', 4);
+INSERT INTO `producto` (`id_producto`, `nombre`, `precio`, `id_coleccion`) VALUES
+(1, 'Mochila emoji', '1500', 3),
+(2, 'mochila Simpson', '1500', 3),
+(3, 'Individuales', '150', 4),
+(4, 'Estuche higienico', '250', 2);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `categoria`
+-- Indices de la tabla `coleccion`
 --
-ALTER TABLE `categoria`
-  ADD PRIMARY KEY (`id_categoria`);
+ALTER TABLE `coleccion`
+  ADD PRIMARY KEY (`id_coleccion`);
 
 --
 -- Indices de la tabla `producto`
@@ -84,6 +84,12 @@ ALTER TABLE `producto`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `coleccion`
+--
+ALTER TABLE `coleccion`
+  MODIFY `id_coleccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
