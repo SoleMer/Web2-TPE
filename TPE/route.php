@@ -1,6 +1,7 @@
 <?php
 
 require_once('db.php');
+require_once('controllers/productoController.php');
 
 if($_GET['action'] == '')
     $_GET['action'] = 'home';
@@ -8,11 +9,11 @@ if($_GET['action'] == '')
 $urlParts = explode(delimiter '/', $_GET['action']);
 
 switch ($urlParts[0]) {
-    case 'home':
-        # code...
+    case 'products':
+        $controller = new productoController();
+        $controller->showProducts();
         break;
-    
     default:
-        echo showProduct();
+        echo "<h1>Error 404</h1>";
         break;
 }

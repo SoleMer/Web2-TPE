@@ -22,7 +22,7 @@ private function head_code() {
 
 /**
  * @return string
- * Contruye el html para visualizar las tareas guardadas en la bd
+ * Contruye el html para visualizar los productos guardados en la bd
  */
 
 
