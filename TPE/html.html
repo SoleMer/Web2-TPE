@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de productos</title>
+    <title></title>
 </head>
 <body>
-    <h1>Lista de productos</h1>
-    <ul>;
-
-    html .= </ul>
+    <h1>Colecciones</h1>
+    <ul>
+        {foreach ($collections as $collection) }
+            <li>$collection</li>
+        {/foreach}}
+    </ul>  
 </body>
 </html>;

@@ -13,6 +13,12 @@ switch ($urlParts[0]) {
         $controller = new productoController();
         $controller->showProducts();
         break;
+    case 'product':
+        $controller = new productoController();
+        $controller->showProduct();
+    case 'colections':
+        $controller = new colectionController();
+        $controller->showColections();
     default:
         echo "<h1>Error 404</h1>";
         break;

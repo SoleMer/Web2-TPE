@@ -1,6 +1,6 @@
 <?php
 
-class ProductoModel {
+class ProductModel {
 
     private $db;
 
@@ -26,7 +26,7 @@ class ProductoModel {
      * Retorna todas las tareas guardadas en la tabla producto
     **/
     public function getAll() {
-        $query = $this->db->prepare('SELECT * FROM producto ORDER BY id_coleccion ASC');
+        $query = $this->db->prepare('SELECT * FROM product ORDER BY id_collection ASC');
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }

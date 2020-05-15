@@ -1,16 +1,16 @@
 <?php
 
-include_once('models/ProductoModel.php');
-include_once('views/ProductoView.php');
+include_once('models/ProductModel.php');
+include_once('views/ProductView.php');
 
-class ProductoController {
+class ProductController {
 
     private $model;
     private $view;
 
     public function __construct() {
-        $this->model = new ProductoModel();
-        $this->view = new ProductoView();
+        $this->model = new ProductModel();
+        $this->view = new ProductView();
     }
 
     /**
@@ -20,3 +20,4 @@ class ProductoController {
         $products = $this->model->getAll();
         $this->view->showProducts($products);
     }
+}
