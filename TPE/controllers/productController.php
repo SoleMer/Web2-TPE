@@ -1,7 +1,7 @@
 <?php
 
 include_once('models/ProductModel.php');
-include_once('views/ProductView.php');
+include_once('views/productDetailView.php');
 
 class ProductController {
 
@@ -10,7 +10,7 @@ class ProductController {
 
     public function __construct() {
         $this->model = new productModel();
-        $this->view = new productView();
+        $this->view = new productDetailView();
     }
 
     /**

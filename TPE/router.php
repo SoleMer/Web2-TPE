@@ -12,9 +12,11 @@ if($_GET['action'] == '')
 $urlParts = explode('/', $_GET['action']);
 
 switch ($urlParts[0]) {
+    case 'home':
+        //DESARROLLAR
     case 'login':
         $controller = new userController();
-        $controller-> showLogin();
+        $controller->showLogin();
     case 'products':
         $controller = new ProductsByCollectionController();
         $controller->showProductsByCollection();

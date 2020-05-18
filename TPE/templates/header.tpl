@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <!--ENCABEZADO-->
+    <!--HEADER-->
     <header>
         <div class="container">
             <div class="row">
@@ -22,7 +22,7 @@
             </div>
         </div>
     </header>
-    <!--NAVEGADOR-->
+    <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <img src="img/Logo.jpg" class="logo-nav">
         <a class="navbar-brand" href="#"></a>
@@ -34,13 +34,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a href="" id="" class="item-href-nav">INICIO</a>
+                    <a href="#" id="" class="item-href-nav">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="item-href-nav">PRODUCTOS</a>
+                    <a href="products" class="item-href-nav">PRODUCTOS</a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://wa.me/5492262630591" class="item-href-nav">CONSULTANOS</a>
+                    <a href="collections" class="item-href-nav">COLECCIONES</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login" class="item-href-nav">SOY ADMINISTRADOR/A</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>

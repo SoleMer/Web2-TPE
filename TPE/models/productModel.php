@@ -28,8 +28,9 @@ class ProductModel {
     }
     
     public function getProductById($id){
-        $query = $this->db->prepare('SELECT * FROM product WHERE id_product === $id');
-        $query->execute();
-        return $query->fetchAll(PDO::FETCH_OBJ);
+        $query = $this->db->prepare('SELECT * FROM product WHERE id_product = ?');
+        $query->execute(array($id));
+        $product = $query->fetchAll(PDO::FETCH_OBJ);
+        return $product;
     }
 }

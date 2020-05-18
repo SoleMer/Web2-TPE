@@ -9,7 +9,7 @@ header{
     display: none;
 }
 .nav-item{
-    padding-left: 200px;
+    padding-left: 120px;
 }
 .item-href-nav{
     color: white;
@@ -22,7 +22,6 @@ header{
 }
 footer{
     align-content: center;
-    position:absolute;
     bottom: 5px;
 }
 .img-icono{
