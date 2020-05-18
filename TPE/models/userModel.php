@@ -1,6 +1,6 @@
 <?php
 
-class ProductModel {
+class userModel {
 
     private $db;
 
@@ -22,13 +22,7 @@ class ProductModel {
     }
 
     public function getAll() {
-        $query = $this->db->prepare('SELECT * FROM product ORDER BY id_collection ASC');
-        $query->execute();
-        return $query->fetchAll(PDO::FETCH_OBJ);
-    }
-    
-    public function getProductById($id){
-        $query = $this->db->prepare('SELECT * FROM product WHERE id_product === $id');
+        $query = $this->db->prepare('SELECT * FROM user');
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }

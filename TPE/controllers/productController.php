@@ -21,6 +21,10 @@ class ProductController {
         $this->view->showProducts($products);
     }
 
+    public function showProductDetail($idProduct) {
+        $product = $this->model->getProductById($idProduct);
+        $this->view->showProductDetail($product);
+    }
     
 }
 

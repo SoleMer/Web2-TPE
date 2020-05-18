@@ -4,6 +4,7 @@ require_once('db.php');
 require_once('controllers/productController.php');
 require_once('controllers/collectionController.php');
 require_once('controllers/productsByCollectionController.php');
+require_once('controllers/userController.php');
 
 if($_GET['action'] == '')
     $_GET['action'] = 'products';
@@ -11,13 +12,16 @@ if($_GET['action'] == '')
 $urlParts = explode('/', $_GET['action']);
 
 switch ($urlParts[0]) {
+    case 'login':
+        $controller = new userController();
+        $controller-> showLogin();
     case 'products':
         $controller = new ProductsByCollectionController();
         $controller->showProductsByCollection();
         break;
-/*    case 'product':
+    case 'product':
         $controller = new productController();
-        $controller->showProduct(); */
+        $controller->showProductDetail($urlParts[1]); 
     case 'collections':
         $controller = new collectionController();
         $controller->showCollections();

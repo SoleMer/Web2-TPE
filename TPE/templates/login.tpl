@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-</head>
-<body>
-    <form>
+{include 'templates/header.tpl'}
+<div class="container">
+    <div class="col-md-12">
+        <form action="verify" method="POST"n>
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -20,7 +15,8 @@
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" action="verify">Login</button>
       </form>
-</body>
-</html>; 
+    </div>
+</div>
+{include 'templates/footer.tpl'}

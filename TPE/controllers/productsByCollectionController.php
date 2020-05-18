@@ -19,7 +19,7 @@ class ProductsByCollectionController {
     public function showProductsByCollection() {
         $products = $this->pModel->getAll();
         $collections = $this->cModel->getAll();
-        $this->view->showProducts($products , $collections);
+        $this->view->showProducts($products,$collections);
     }
 }
 
