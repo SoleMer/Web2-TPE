@@ -1,11 +1,55 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <base href="' .BASE_URL. '">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <title>Product List</title>
-    </head>
-    <body>
-    //navbar
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Soy Yo</title>
+    <link rel="stylesheet" href="css/soyyo.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="js/soyyo.js"></script>
+</head>
+
+<body>
+    <!--ENCABEZADO-->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <img src="img/logo.png" class="logo">
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--NAVEGADOR-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <img src="img/Logo.jpg" class="logo-nav">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a href="" id="" class="item-href-nav">INICIO</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="item-href-nav">PRODUCTOS</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://wa.me/5492262630591" class="item-href-nav">CONSULTANOS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img src="img/Iconos/icono-lupa.png"
+                        class="lupa"></button>
+            </form>
+        </div>
+    </nav>

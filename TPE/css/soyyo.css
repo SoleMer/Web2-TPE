@@ -1,0 +1,35 @@
+header{
+    height: 260px;
+}
+
+.logo{
+    margin-left: 200px;
+}
+.logo-nav{
+    display: none;
+}
+.nav-item{
+    padding-left: 200px;
+}
+.item-href-nav{
+    color: white;
+}
+.btn.btn-outline-success.my-2.my-sm-0{
+    padding: 0;
+}
+.lupa{
+    width: 40px;
+}
+footer{
+    align-content: center;
+    position:absolute;
+    bottom: 5px;
+}
+.img-icono{
+    width: 60px;
+    text-decoration: none;
+    display: inline;
+    padding: 10px;
+    align-content: center;
+    margin-left: 300px;
+}
