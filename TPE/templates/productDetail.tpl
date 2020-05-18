@@ -6,4 +6,4 @@
         <p>Categoria</p>  
     </div>
 </div>
-{include 'templates/footer'}
+{include 'templates/footer.tpl'}

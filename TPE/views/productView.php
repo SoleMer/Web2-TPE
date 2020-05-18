@@ -1,5 +1,5 @@
 <?php
-
+require_once('libs/Smarty.class.php');
 class ProductView {
 
 /*
@@ -11,12 +11,14 @@ class ProductView {
     $smarty = new Smarty();
     $smarty->assign('title','Product List');
     $smarty->assign('products', $products);
+    $smarty->display('templates/productList.tpl');
 }
 
-function showProduct($products){
+function showProduct($product){
     $smarty = new Smarty();
     $smarty->assign('title','Product Detaill');
     $smarty->assign('products', $product);
+    $smarty->display('templates/productDetail.tpl');
 }
 }
 

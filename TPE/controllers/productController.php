@@ -9,8 +9,8 @@ class ProductController {
     private $view;
 
     public function __construct() {
-        $this->model = new ProductModel();
-        $this->view = new ProductView();
+        $this->model = new productModel();
+        $this->view = new productView();
     }
 
     /**
@@ -20,4 +20,8 @@ class ProductController {
         $products = $this->model->getAll();
         $this->view->showProducts($products);
     }
+
+    
 }
+
+?>

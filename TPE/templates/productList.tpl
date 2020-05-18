@@ -10,17 +10,15 @@
                 </tr>
             </thead>
             <tbody>
-                {foreach ($products as $product) }
-                    $id_product = $producto->id_producto;
-                    $name_product = $producto->nombre;
-                    $precio_product = $producto->precio;
-                            
-                    <td> $id_product </td>
-                    <td> $name_product </td>
-                    <td> $precio_product </td>
-                {/foreach}}              
+                {foreach from=$products item=$product}
+                <tr>
+                    <td>{$product->id_product}</td>
+                    <td>{$product->name}</td>
+                    <td>{$product->cost}</td>
+                </tr>
+                {/foreach}             
             </tbody>
         </table>
     </div>
 </div>
-{include 'templates/footer'}
+{include 'templates/footer.tpl'}

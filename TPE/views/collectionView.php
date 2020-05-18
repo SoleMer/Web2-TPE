@@ -1,5 +1,5 @@
 <?php
-
+require_once('libs/Smarty.class.php');
 class CollectionView {
 
 /*
@@ -11,13 +11,15 @@ class CollectionView {
     $smarty = new Smarty();
     $smarty->assign('title','Collections List');
     $smarty->assign('collections', $collections);
+    $smarty->display('templates/collectionsList.tpl');
 }
 
-function showCollection($collection){
+/*function showCollection($collection){
     $smarty = new Smarty();
     $smarty->assign('title','Product of Collection');
     $smarty->assign('collection', $collection);
-}
+    $smarty->display('templates/.tpl');
+}*/
 }
 
 ?>
