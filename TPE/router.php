@@ -1,6 +1,7 @@
 <?php
 
 require_once('db.php');
+require_once('controllers/homeController.php');
 require_once('controllers/productController.php');
 require_once('controllers/collectionController.php');
 require_once('controllers/productsByCollectionController.php');
@@ -13,10 +14,17 @@ $urlParts = explode('/', $_GET['action']);
 
 switch ($urlParts[0]) {
     case 'home':
-        //DESARROLLAR
+        $controller = new homeController();
+        $controller->showHome();
+        break;
     case 'login':
         $controller = new userController();
         $controller->showLogin();
+    break;
+    case 'verify':
+        $controller = new userController();
+        $controller->verify();
+    break;
     case 'products':
         $controller = new ProductsByCollectionController();
         $controller->showProductsByCollection();
@@ -24,6 +32,7 @@ switch ($urlParts[0]) {
     case 'product':
         $controller = new productController();
         $controller->showProductDetail($urlParts[1]); 
+    break;
     case 'collections':
         $controller = new collectionController();
         $controller->showCollections();

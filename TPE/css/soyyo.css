@@ -3,7 +3,9 @@ header{
 }
 
 .logo{
-    margin-left: 200px;
+    width: 60px;
+    text-decoration: none;
+    display: inline;
 }
 .logo-nav{
     display: none;
@@ -22,6 +24,7 @@ header{
 }
 footer{
     align-content: center;
+    position: absolute;
     bottom: 5px;
 }
 .img-icono{

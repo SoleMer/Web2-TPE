@@ -15,11 +15,17 @@ class userController {
 
     //muestra el formulario
     public function showLogin() {
-        $users = $this->model->getAll();
-        $this->view->showLogin($users);
+        $this->view->showLogin();
     }
 
-    
+    public function verify(){
+        if(!empty($_POST['email']) && !empty($_POST['password'])){
+            $user-> $_POST['email'];
+            $pass-> $_POST['password'];
+            echo $user . ' ' . $pass;
+        }
+        
+    }
 }
 
 ?>
