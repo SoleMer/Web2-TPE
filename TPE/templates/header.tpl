@@ -2,13 +2,14 @@
 <html lang="en">
 
 <head>
+    <base href="' .BASE_URL. '">
+    <base href="{$base_url}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Soy Yo</title>
     <link rel="stylesheet" href="css/soyyo.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script type="text/javascript" src="js/soyyo.js"></script>
 </head>
 
 <body>
@@ -34,16 +35,18 @@
                     <a href="collections" class="item-href-nav">COLECCIONES</a>
                 </li>
                 <li class="nav-item">
-                    <a href="login" class="item-href-nav">SOY ADMINISTRADOR/A</a>
+                    <a href="login" class="item-href-nav">LOGIN</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
-                </li>
+                {if isset($username)}
+                    <li class="nav-item">
+                        {$username}
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link " href="logout">Logout</a>
+                    </li>
+            {/if}
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><img src="img/Iconos/icono-lupa.png"
-                        class="lupa"></button>
-            </form>
+            
         </div>
     </nav>
+    

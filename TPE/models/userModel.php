@@ -21,9 +21,10 @@ class userModel {
         }
     }
 
-    public function getAll() {
-        $query = $this->db->prepare('SELECT * FROM user');
-        $query->execute();
-        return $query->fetchAll(PDO::FETCH_OBJ);
+    public function getUserByUsername($username) {
+        $query = $this->db->prepare('SELECT * FROM `user` WHERE username = ?');
+        $query->execute(array(($username)));
+        return $query->fetch(PDO::FETCH_OBJ);      
     }
 }
+?>

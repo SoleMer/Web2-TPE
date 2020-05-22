@@ -25,9 +25,14 @@ switch ($urlParts[0]) {
         $controller = new userController();
         $controller->verify();
     break;
+    case "logout":
+        $controller = new UserController();
+        $controller->logout();
+    break;
     case 'products':
         $controller = new ProductsByCollectionController();
-        $controller->showProductsByCollection();
+       // $controller->showProductsByCollection();
+        $controller->showProductsSelect();
         break;
     case 'product':
         $controller = new productController();

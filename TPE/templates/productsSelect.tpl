@@ -1,6 +1,15 @@
 {include 'templates/header.tpl'}
+
 <div class="container">
-    <div class="col-md-6 offset-md-3 fondo-blanco">
+    <div class="col-md-8 offset-md-2 fondo-blanco">
+        <label for="view">Ver:</label>
+        <select name="view" id="view">
+          <option selected>Todos los productos</option>
+          {foreach from=$collections item=$collection}
+                <option value="{$collection->id_collection}" action="collection/{$collection->id_collection}">{$collection->name}</option></a>
+          {/foreach}   
+        </select>
+        
         <table class="table">
             <thead>
                 <tr>
@@ -21,4 +30,5 @@
         </table>
     </div>
 </div>
+
 {include 'templates/footer.tpl'}

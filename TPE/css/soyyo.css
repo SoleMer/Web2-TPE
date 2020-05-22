@@ -1,6 +1,17 @@
 header{
     height: 260px;
 }
+body{
+    background-image: url(../img/fondo.jpg);
+}
+.container{
+    margin-top: 40px;
+}
+
+.fondo-blanco{
+    background-color: white;
+    border-radius: 10px;
+}
 
 .logo{
     width: 60px;
@@ -26,6 +37,9 @@ footer{
     align-content: center;
     position: absolute;
     bottom: 5px;
+    background-color: white;
+    border: 2px;
+    border-color: teal;
 }
 .img-icono{
     width: 60px;

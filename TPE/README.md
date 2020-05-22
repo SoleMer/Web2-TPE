@@ -14,5 +14,4 @@ Aclaraciones:
 
 Dudas:
 
-        -inicio de sesion
         -nueva vista para eliminar y editar?
