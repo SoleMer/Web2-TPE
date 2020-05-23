@@ -27,10 +27,32 @@ class productModel {
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
     
-    public function getProductById($id){
-        $query = $this->db->prepare('SELECT * FROM product WHERE id_product = ?');
-        $query->execute(array($id));
-        $product = $query->fetchAll(PDO::FETCH_OBJ);
-        return $product;
+    public function getProductByName($name){
+        $query = $this->db->prepare('SELECT * FROM product WHERE `name` = ?');
+        $query->execute(array($name));
+        return $query->fetch(PDO::FETCH_OBJ);
+    }
+
+    // Agrega una tupla de la tabla task a partir de 3 parametros
+     
+    public function save($name, $cost, $idCollection) {
+        $query = $this->db->prepare('INSERT INTO product (`name`, cost, id_collection) VALUES (?, ?, ?)');
+        return $query->execute([$name, $cost, $idCollection]);
+    }
+
+    //Elimina una tupla de la tabla product a partir de un id pasado x parametro
+    
+    function deleteProductDB($id) {
+        $query = $this->db->prepare('DELETE FROM `product` WHERE `id_product`= ?');
+        return $query->execute([$id]);
+    }
+
+    public function editProductDB($id, $name, $cost, $collection){
+        var_dump($id);
+        var_dump($name);
+        var_dump($cost);
+        var_dump($collection);
+        $query = $this->db->prepare('UPDATE `product` SET `name`= ? , `cost`= ?, `id_collection`= ?  WHERE `product`.`id_product` = ?');
+        return $query->execute([$id,$name,$cost,$collection]);
     }
 }

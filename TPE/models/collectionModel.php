@@ -28,4 +28,15 @@ class CollectionModel {
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
+
+    //ANGREGA NUEVA COLECION
+    public function save($name) {
+        $query = $this->db->prepare('INSERT INTO `collection` (`name`) VALUES (?)');
+        return $query->execute([$name]);
+    }
+
+    function deleteCollectionDB($id) {
+        $query = $this->db->prepare('DELETE FROM `collection` WHERE `id_collection`= ?');
+        return $query->execute([$id]);
+    }
 }

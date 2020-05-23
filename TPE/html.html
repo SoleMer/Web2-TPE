@@ -6,12 +6,16 @@
     <title></title>
 </head>
 <body>
-    <label for="Ver:"></label>
-    <select name="view">
-      <option selected>Todos los productos</option>
-      foreach ($collections as $collection) {
-        <option value="collection->id_collection">{collection->name}</option>
-      }   
-    </select>
+    <form action="">
+      <div class="form-group">
+        <label for="productname">Producto</label>
+        <input name='productname' type="text" class="form-control" id="productname">
+      </div>
+      <div class="form-group">
+        <label for="cost">Precio</label>
+        <input name='cost' type="number" class="form-control" id="cost" placeholder="Cost">
+      </div>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
 </body>
 </html>; 

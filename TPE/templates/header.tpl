@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <base href="' .BASE_URL. '">
+    <base href={$baseURL}>
     <base href="{$base_url}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    
+
     <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <img src="img/Logo.jpg" class="logo-nav">
@@ -44,7 +44,7 @@
                     <li class="nav-item">
                         <a class="nav-item nav-link " href="logout">Logout</a>
                     </li>
-            {/if}
+                {/if}
             </ul>
             
         </div>

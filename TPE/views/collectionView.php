@@ -1,25 +1,25 @@
 <?php
 require_once('libs/Smarty.class.php');
+include_once('helpers/auth.helper.php');
+
 class CollectionView {
 
-/*
- * @return string
- * Contruye el html para visualizar las colecciones guardadas en la bd
- */
+    private $smarty;
 
- function showCollections($collections){
-    $smarty = new Smarty();
-    $smarty->assign('title','Collections List');
-    $smarty->assign('collections', $collections);
-    $smarty->display('templates/collectionsList.tpl');
-}
+    public function __construct() {
+        $authHelper = new AuthHelper();
+        $username = $authHelper->getLoggedUserName();
+        $this->smarty = new Smarty();
+        $this->smarty->assign('username', $username);
+        $this->smarty->assign('baseURL', BASE_URL);
+    }
 
-/*function showCollection($collection){
-    $smarty = new Smarty();
-    $smarty->assign('title','Product of Collection');
-    $smarty->assign('collection', $collection);
-    $smarty->display('templates/.tpl');
-}*/
+    function showCollections($collections){
+        $this->smarty->assign('title','Collections List');
+        $this->smarty->assign('collections', $collections);
+        $this->smarty->display('templates/collections.tpl');
+    }
+
 }
 
 ?>
