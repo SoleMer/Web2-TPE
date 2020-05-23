@@ -14,15 +14,17 @@ class productView {
         $this->smarty->assign('baseURL', BASE_URL);
     }
 
-    public function showProducts($products){
+    public function showProducts($products,$collections){
         $this->smarty->assign('title','Product List');
         $this->smarty->assign('products', $products);
+        $this->smarty->assign('collections', $collections);
         $this->smarty->display('templates/products.tpl');
     }
 
-    public function showProductDetail($product){
+    public function showProductDetail($product,$collections){
         $this->smarty->assign('title','Product Detail');
         $this->smarty->assign('product', $product);
+        $this->smarty->assign('collections', $collections);
         $this->smarty->display('templates/productDetail.tpl');
     }
 

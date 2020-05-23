@@ -4,6 +4,11 @@
   <div class="col-md-6 offset-md-2 fondo-blanco">
     <h1>{$product->name}</h1>
     <p>${$product->cost}</p>
+    {foreach from=$collections item=collection}
+	    {if $collection->id_collection == $product->id_collection}
+	      <p>Coleccion: {$collection->name}</p>
+	    {/if}
+	  {/foreach}
   </div>
   {if isset($username)}
     <form action="{$baseURL}edit/{$product->id_product}" method= "POST" class="col-md-4 fondo-blanco">
@@ -17,8 +22,13 @@
       </div>
       <div class="form-group">
         <label for="collection">Coleccion</label>
-        <input name='collection' type="number" class="form-control" id="collection">
+        <select name="collection">
+	        {foreach from=$collections item=collection}
+	            <option value='{$collection->id_collection}'>{$collection->name}</option>
+	        {/foreach}
+	      </select>
       </div>
+
       <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
   {/if}

@@ -29,12 +29,14 @@ class ProductController {
     
     public function showProducts() {
         $products = $this->model->getAll();
-        $this->view->showProducts($products);
+        $collections = $this->collModel->getAll();
+        $this->view->showProducts($products,$collections);
     }
 
     public function showProductDetail($productName) {
         $product = $this->model->getProductByName($productName);
-        $this->view->showProductDetail($product);
+        $collections = $this->collModel->getAll();
+        $this->view->showProductDetail($product,$collections);
     }
 
     public function showProductsByCollection() {

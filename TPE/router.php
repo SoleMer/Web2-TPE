@@ -9,7 +9,7 @@ require_once('controllers/userController.php');
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
 if($_GET['action'] == '')
-    $_GET['action'] = 'products';
+    $_GET['action'] = 'home';
 
 $urlParts = explode('/', $_GET['action']);
 

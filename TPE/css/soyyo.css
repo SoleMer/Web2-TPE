@@ -15,7 +15,7 @@ body{
 }
 
 .logo{
-    width: 60px;
+    width: 80px;
     text-decoration: none;
     display: inline;
 }
@@ -26,12 +26,15 @@ body{
     padding-left: 120px;
 }
 .item-href-nav{
-    color: white;
-}
-.oculto{
-    display: none;
+    color: deepskyblue;
 }
 
+.mediosDePago{
+    width: 716px;
+}
+.centrado{
+    padding-left: 280px;
+}
 .btn.btn-outline-success.my-2.my-sm-0{
     padding: 0;
 }

@@ -14,7 +14,7 @@
 <body>
 
     <!--NAVBAR-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <img src="img/Logo.jpg" class="logo-nav">
         <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -25,7 +25,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a href="home" id="" class="item-href-nav"><img src="img/logoSmall.png" class="logo"></a>
+                    <a href="home" id="" class="item-href-nav"><img src="img/logo.jpg" class="logo"></a>
                 </li>
                 <li class="nav-item">
                     <a href="products" class="item-href-nav">PRODUCTOS</a>
