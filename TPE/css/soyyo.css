@@ -3,6 +3,7 @@ header{
 }
 body{
     background-image: url(../img/fondo.jpg);
+    min-height: 100%;
 }
 .container{
     margin-top: 40px;
@@ -39,11 +40,12 @@ body{
 }
 footer{
     align-content: center;
-    position: absolute;
-    bottom: 5px;
+    position: fixed;
+    bottom: 0;
     background-color: white;
     border: 2px;
     border-color: teal;
+    text-align: center;
 }
 .img-icono{
     width: 60px;

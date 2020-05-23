@@ -33,7 +33,7 @@ class productModel {
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
-    // Agrega una tupla de la tabla task a partir de 3 parametros
+    // Agrega una tupla de la tabla product a partir de 3 parametros
      
     public function save($name, $cost, $idCollection) {
         $query = $this->db->prepare('INSERT INTO product (`name`, cost, id_collection) VALUES (?, ?, ?)');
@@ -48,11 +48,7 @@ class productModel {
     }
 
     public function editProductDB($id, $name, $cost, $collection){
-        var_dump($id);
-        var_dump($name);
-        var_dump($cost);
-        var_dump($collection);
-        $query = $this->db->prepare('UPDATE `product` SET `name`= ? , `cost`= ?, `id_collection`= ?  WHERE `product`.`id_product` = ?');
-        return $query->execute([$id,$name,$cost,$collection]);
+        $query = $this->db->prepare('UPDATE `product` SET `name`= ? , `cost`= ?, `id_collection`= ?  WHERE `id_product` = ?');
+        return $query->execute([$name,$cost,$collection,$id]);
     }
 }

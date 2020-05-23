@@ -4,7 +4,6 @@ require_once('db.php');
 require_once('controllers/homeController.php');
 require_once('controllers/productController.php');
 require_once('controllers/collectionController.php');
-require_once('controllers/productsByCollectionController.php');
 require_once('controllers/userController.php');
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
@@ -59,6 +58,10 @@ switch ($urlParts[0]) {
         $controller = new collectionController();
         $controller->showCollections();
     break;
+    case 'collection':
+        $controller = new collectionController();
+        $controller->showCollectionDetail($urlParts[1]);
+    break; 
     case 'newCollection':
         $controller = new collectionController();
         $controller->addCollection();

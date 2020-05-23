@@ -1,12 +1,21 @@
 <?php
 require_once('libs/Smarty.class.php');
+include_once('helpers/auth.helper.php');
 
 class homeView {
- 
- function showHome(){
-    $smarty = new Smarty();
-    $smarty->assign('title','Home');
-    $smarty->display('templates/home.tpl');
-}
+
+    private $smarty;
+
+    public function __construct() {
+        $authHelper = new AuthHelper();
+        $username = $authHelper->getLoggedUserName();
+        $this->smarty = new Smarty();
+        $this->smarty->assign('username', $username);
+        $this->smarty->assign('baseURL', BASE_URL);
+    }
+    public function showHome(){
+        $this->smarty->assign('title','Home');
+        $this->smarty->display('templates/home.tpl');
+    }
 }
 ?>

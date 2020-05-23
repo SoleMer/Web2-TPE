@@ -1,7 +1,11 @@
 {include 'templates/header.tpl'}
 
 <div class="container fluid">
-<div class="col-md-6 offset-md-3 fondo-blanco inline">
+<div class="row">
+<div class="col-md-3">
+        <a href="{$baseURL}products"><button type="submit" class="btn btn-primary">Back</button></a></td>
+    </div>
+<div class="col-md-6 fondo-blanco inline">
             <h5>Colecciones</h5>
             <table class="table">
                 <thead>
@@ -31,5 +35,5 @@
         </div>
         </div>
         </div>
-
+</div>
         {include 'templates/footer.tpl'}

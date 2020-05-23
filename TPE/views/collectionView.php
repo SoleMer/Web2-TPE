@@ -20,6 +20,12 @@ class CollectionView {
         $this->smarty->display('templates/collections.tpl');
     }
 
+    public function showProductDetail($collection){
+        $this->smarty->assign('title','Collection Detail');
+        $this->smarty->assign('collection', $collection);
+        $this->smarty->display('templates/collectionDetail.tpl');
+    }
+
 }
 
 ?>

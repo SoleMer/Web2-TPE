@@ -16,17 +16,19 @@
                             <td>{$collection->id_collection}</td>
                             <td>{$collection->name}</td>
                             {if isset($username)}
-                                <td><a href="{$baseURL}delete/{$collection->id_collection}"><button type="submit" class="btn btn-primary" name= "id" value= "{$product->id_product}">Eliminar</button></a></td>
-                                <td><a href=""><button type="submit" class="btn btn-primary">Editar</button></a></td>
+                                <td><a href="{$baseURL}deleteCollection/{$collection->id_collection}"><button type="submit" class="btn btn-primary" name= "id" value= "{$product->id_product}">Eliminar</button></a></td>
+                                <td><a href="{$baseURL}collection/{$collection->name}"><button type="submit" class="btn btn-primary">Editar</button></a></td>
                             {/if}
                         </tr>
                     {/foreach}
-                    <tr>
-                        <form action="newCollection" method="POST">
-                            <td><input name='collectionName' type="text" class="form-control"  placeholder="Nueva Coleccion"></td>
-                            <td><button type="submit" class="btn btn-primary">Agregar</button></td>
-                        </form>
-                    </tr>
+                    {if isset($username)}
+                        <tr>
+                            <form action="newCollection" method="POST">
+                                <td><input name='collectionName' type="text" class="form-control"  placeholder="Nueva Coleccion"></td>
+                                <td><button type="submit" class="btn btn-primary">Agregar</button></td>
+                            </form>
+                        </tr>
+                    {/if}
                 </tbody>
             </table>
         </div>

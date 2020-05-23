@@ -40,7 +40,7 @@ class ProductController {
     public function showProductsByCollection() {
         $products = $this->model->getAll();
         $collections = $this->collModel->getAll();
-        $this->view->showProductsBNyCollection($products,$collections);
+        $this->view->showProductsByCollection($products,$collections);
     }
     
     public function addProduct() {
@@ -78,7 +78,7 @@ class ProductController {
         $this->model->editProductDB($id, $name, $cost, $collection);
 
         header("Location: ". BASE_URL. 'products');
-    }
+    } 
 }
 
 ?>

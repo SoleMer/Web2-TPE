@@ -1,15 +1,12 @@
 <?php
-
 class AuthHelper {
-
-    public function __construct() {
-    }
-
     public function getLoggedUserName() {
         if (session_status() != PHP_SESSION_ACTIVE)
             session_start();
-        return $_SESSION['USERNAME'];
-    }
+        if(isset($_SESSION['USERNAME']))
+            return $_SESSION['USERNAME'];
+        else
+            return null;
+    }   
 }
-
 ?>

@@ -5,7 +5,7 @@
     <div class="col-md-3">
         <a href="{$baseURL}productsByCollection"><button type="submit" class="btn btn-primary">Ver por coleccion</button></a></td>
     </div>
-    <div class="col-md-6 offset-md-1 fondo-blanco">
+    <div class="col-md-6 fondo-blanco">
         <table class="table">
             <thead>
                 <tr>
@@ -18,7 +18,7 @@
                 {foreach from=$products item=$product}
                     <tr>
                         <td>{$product->id_product}</td>
-                        <td>{$product->name}</td>
+                        <td><a href="product/{$product->name}">{$product->name}</a></td>
                         <td>${$product->cost}</td>
                         {if isset($username)}
                             <td><a href="{$baseURL}delete/{$product->id_product}"><button type="submit" class="btn btn-primary" name= "id" value= "{$product->id_product}">Eliminar</button></a></td>

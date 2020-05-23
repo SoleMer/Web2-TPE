@@ -29,6 +29,12 @@ class CollectionModel {
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function getCollectionByName($name){
+        $query = $this->db->prepare('SELECT * FROM `collection` WHERE `name` = ?');
+        $query->execute(array($name));
+        return $query->fetch(PDO::FETCH_OBJ);
+    }
+
     //ANGREGA NUEVA COLECION
     public function save($name) {
         $query = $this->db->prepare('INSERT INTO `collection` (`name`) VALUES (?)');
@@ -38,5 +44,10 @@ class CollectionModel {
     function deleteCollectionDB($id) {
         $query = $this->db->prepare('DELETE FROM `collection` WHERE `id_collection`= ?');
         return $query->execute([$id]);
+    }
+
+    public function editCollectionDB($id, $name){
+        $query = $this->db->prepare('UPDATE `collection` SET `name`= ?  WHERE `id_collection` = ?');
+        return $query->execute([$name,$id]);
     }
 }

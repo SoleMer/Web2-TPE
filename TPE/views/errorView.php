@@ -1,7 +1,7 @@
 <?php
 require_once('libs/Smarty.class.php');
 
-class productView {
+class errorView {
 
     private $smarty;
 

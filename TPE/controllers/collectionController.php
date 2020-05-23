@@ -22,6 +22,11 @@ class CollectionController{
         $this->view->showCollections($collections);
     }
 
+    public function showCollectionDetail($collectionName){
+        $collection = $this->model->getCollectionByName($collectionName);
+        $this->view->showProductDetail($collection);
+    }
+
     public function addCollection() {
         if (empty($_POST['collectionName'])) {
             $this->errorView->showError("Faltan datos obligatorios");
