@@ -14,13 +14,13 @@ class userModel {
 
         try {
             $this->db = new PDO("mysql:host=$host;dbname=$database;charset=utf8", $userName, $password);
-           // $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
         } 
         catch (Exception $e) {
             echo(var_dump($e));
         }
     }
 
+    //Obtiene un usuario de la DDBB según el username recibido por parametro
     public function getUserByUsername($username) {
         $query = $this->db->prepare('SELECT * FROM `user` WHERE username = ?');
         $query->execute(array(($username)));

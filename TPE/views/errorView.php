@@ -10,6 +10,7 @@ class errorView {
         $this->smarty->assign('baseURL', BASE_URL);
     }
 
+    //Construye el html para mostrar un mensaje de error
     public function showError($msg) {
         $this->smarty->assign('message', $msg);
         $this->smarty->assign('title', 'Error');

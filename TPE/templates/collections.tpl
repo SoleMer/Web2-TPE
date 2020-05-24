@@ -24,7 +24,7 @@
                     {if isset($username)}
                         <tr>
                             <form action="newCollection" method="POST">
-                                <td><input name='collectionName' type="text" class="form-control"  placeholder="Nueva Coleccion"></td>
+                                <td><input name='collectionName' type="text" class="form-control"  placeholder="Nueva Colección"></td>
                                 <td><button type="submit" class="btn btn-primary">Agregar</button></td>
                             </form>
                         </tr>

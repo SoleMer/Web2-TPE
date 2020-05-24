@@ -19,33 +19,34 @@ class CollectionModel {
         }
     }
 
-    /**
-     * @return array
-     * Retorna todas las tareas guardadas en la tabla producto
-    **/
+    
+    //Retorna todas las colecciones guardadas en la tabla collection
     public function getAll() {
         $query = $this->db->prepare('SELECT * FROM collection ORDER BY id_collection ASC');
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
+    //Retorna la colección que coincide con el nombre recibido por parámetro
     public function getCollectionByName($name){
         $query = $this->db->prepare('SELECT * FROM `collection` WHERE `name` = ?');
         $query->execute(array($name));
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
-    //ANGREGA NUEVA COLECION
+    //Agrega una nueva colección a la DDBB
     public function save($name) {
         $query = $this->db->prepare('INSERT INTO `collection` (`name`) VALUES (?)');
         return $query->execute([$name]);
     }
 
+    //Elimina una colección recibida por parámetro de la base de datos
     function deleteCollectionDB($id) {
         $query = $this->db->prepare('DELETE FROM `collection` WHERE `id_collection`= ?');
         return $query->execute([$id]);
     }
 
+    //Edita una colección en la DDBB
     public function editCollectionDB($id, $name){
         $query = $this->db->prepare('UPDATE `collection` SET `name`= ?  WHERE `id_collection` = ?');
         return $query->execute([$name,$id]);

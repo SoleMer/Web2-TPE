@@ -14,6 +14,7 @@ class productView {
         $this->smarty->assign('baseURL', BASE_URL);
     }
 
+    //Construye el html para mostrar todos los productos
     public function showProducts($products,$collections){
         $this->smarty->assign('title','Product List');
         $this->smarty->assign('products', $products);
@@ -21,6 +22,7 @@ class productView {
         $this->smarty->display('templates/products.tpl');
     }
 
+    //Construye el html para mostrar el detalle de un producto
     public function showProductDetail($product,$collections){
         $this->smarty->assign('title','Product Detail');
         $this->smarty->assign('product', $product);
@@ -28,6 +30,7 @@ class productView {
         $this->smarty->display('templates/productDetail.tpl');
     }
 
+    //Construye el html para mostrar todos los productos listados por colección
     function showProductsByCollection($products,$collections){
         $this->smarty->assign('title','Products by Collection');
         $this->smarty->assign('products', $products);

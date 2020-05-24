@@ -6,7 +6,7 @@
     <p>${$product->cost}</p>
     {foreach from=$collections item=collection}
 	    {if $collection->id_collection == $product->id_collection}
-	      <p>Coleccion: {$collection->name}</p>
+	      <p>Colección: {$collection->name}</p>
 	    {/if}
 	  {/foreach}
   </div>

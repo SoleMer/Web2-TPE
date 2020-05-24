@@ -10,7 +10,7 @@ class homeController {
         $this->view = new homeView();
     }
 
-    //muestra el home
+    //Muestra el home
     public function showHome() {
         $this->view->showHome();
     }

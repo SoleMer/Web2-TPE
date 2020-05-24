@@ -1,6 +1,3 @@
-header{
-    height: 260px;
-}
 body{
     background-image: url(../img/fondo.jpg);
     min-height: 100%;
@@ -34,12 +31,6 @@ body{
 }
 .centrado{
     padding-left: 280px;
-}
-.btn.btn-outline-success.my-2.my-sm-0{
-    padding: 0;
-}
-.lupa{
-    width: 40px;
 }
 footer{
     align-content: center;

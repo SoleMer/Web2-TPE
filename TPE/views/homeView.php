@@ -13,6 +13,8 @@ class homeView {
         $this->smarty->assign('username', $username);
         $this->smarty->assign('baseURL', BASE_URL);
     }
+
+    //Construye el html para mostrar la página "home"
     public function showHome(){
         $this->smarty->assign('title','Home');
         $this->smarty->display('templates/home.tpl');

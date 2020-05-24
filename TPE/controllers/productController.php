@@ -17,6 +17,7 @@ class ProductController {
         $this->collModel = new collectionModel();
     }
 
+    //Chequea que el usuario este logeado
     private function checkLoggedIn(){
         session_start();
         if(!isset($_SESSION['ID_USER'])){
@@ -25,26 +26,28 @@ class ProductController {
         }
     }
 
-    // Muestra la lista de productos.
-    
+    // Muestra todos los productos
     public function showProducts() {
         $products = $this->model->getAll();
         $collections = $this->collModel->getAll();
         $this->view->showProducts($products,$collections);
     }
 
+    //Muestra un producto recibido por parametro
     public function showProductDetail($productName) {
         $product = $this->model->getProductByName($productName);
         $collections = $this->collModel->getAll();
         $this->view->showProductDetail($product,$collections);
     }
 
+    //Muestra todos los productos listados por colección
     public function showProductsByCollection() {
         $products = $this->model->getAll();
         $collections = $this->collModel->getAll();
         $this->view->showProductsByCollection($products,$collections);
     }
     
+    //Agrega un producto a la DDBB
     public function addProduct() {
         if (empty($_POST['name']) || empty($_POST['cost']) || empty($_POST['id_collection'])) {
             $this->errorView->showError("Faltan datos obligatorios");
@@ -63,11 +66,13 @@ class ProductController {
         }
     }
 
+    //Elimina el producto recibido por parámetro de la DDBB
     function deleteProduct($id) {
         $this->model->deleteProductDB($id);
         header("Location: ". BASE_URL. 'products');
     }
 
+    //Edita un producto recibido por parámetro
     public function editProduct($id) {
         if (empty($_POST['productname']) || empty($_POST['cost']) || empty($_POST['collection'])) {
             $this->errorView->showError("Faltan datos obligatorios");

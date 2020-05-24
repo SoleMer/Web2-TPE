@@ -8,7 +8,3 @@ TABLAS:
         -product (id, name, cost, id_colection)
         -colection (id, name)
         -User (id, username, password)
-
-Falta:
-        -Documentar
-        -exportad DDBB

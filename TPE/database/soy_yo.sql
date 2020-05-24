@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-05-2020 a las 23:35:48
+-- Tiempo de generación: 24-05-2020 a las 23:22:55
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.4
 
@@ -37,18 +37,18 @@ CREATE TABLE `collection` (
 --
 
 INSERT INTO `collection` (`id_collection`, `name`) VALUES
-(1, 'Pekes'),
 (2, 'COVID-19'),
 (3, 'Estudiar'),
-(4, 'Hogar');
+(4, 'Hogar'),
+(7, 'Fit');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `producto`
+-- Estructura de tabla para la tabla `product`
 --
 
-CREATE TABLE `producto` (
+CREATE TABLE `product` (
   `id_product` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `cost` decimal(10,0) NOT NULL,
@@ -56,14 +56,31 @@ CREATE TABLE `producto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `producto`
+-- Volcado de datos para la tabla `product`
 --
 
-INSERT INTO `producto` (`id_product`, `name`, `cost`, `id_collection`) VALUES
-(1, 'Mochila emoji', '1500', 3),
-(2, 'mochila Simpson', '1500', 3),
+INSERT INTO `product` (`id_product`, `name`, `cost`, `id_collection`) VALUES
 (3, 'Individuales', '150', 4),
 (4, 'Estuche higienico', '250', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `user`
+--
+
+CREATE TABLE `user` (
+  `id_user` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `user`
+--
+
+INSERT INTO `user` (`id_user`, `username`, `password`) VALUES
+(1, 'admin', '1234');
 
 --
 -- Índices para tablas volcadas
@@ -76,10 +93,16 @@ ALTER TABLE `collection`
   ADD PRIMARY KEY (`id_collection`);
 
 --
--- Indices de la tabla `producto`
+-- Indices de la tabla `product`
 --
-ALTER TABLE `producto`
+ALTER TABLE `product`
   ADD PRIMARY KEY (`id_product`);
+
+--
+-- Indices de la tabla `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -89,13 +112,19 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `collection`
 --
 ALTER TABLE `collection`
-  MODIFY `id_collection` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_collection` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT de la tabla `producto`
+-- AUTO_INCREMENT de la tabla `product`
 --
-ALTER TABLE `producto`
-  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `product`
+  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

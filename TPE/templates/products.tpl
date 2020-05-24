@@ -3,7 +3,7 @@
 <div class="container fluid">
 <div class="row">
     <div class="col-md-2">
-        <a href="{$baseURL}productsByCollection"><button type="submit" class="btn btn-primary">Ver por coleccion</button></a></td>
+        <a href="{$baseURL}productsByCollection"><button type="submit" class="btn btn-primary">Ver por colección</button></a></td>
     </div>
     <div class="col-md-8 fondo-blanco">
         <table class="table">
@@ -12,7 +12,7 @@
                     <th scope="col">id</th>
                     <th scope="col">Producto</th>
                     <th scope="col">Precio</th>
-                    <th scope="col">Coleccion</th>
+                    <th scope="col">Colección</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,7 +39,7 @@
                             <td></td>
                             <td><input name='name' type="text" class="form-control"  placeholder="Producto"></td>
                             <td><input name='cost' type="number" class="form-control" placeholder="$"></td>
-                            <td><label for="id_collection">Coleccion</label>
+                            <td><label for="id_collection">Colección</label>
                                 <select name="id_collection">
 	                                {foreach from=$collections item=collection}
 	                                    <option value='{$collection->id_collection}'>{$collection->name}</option>

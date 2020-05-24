@@ -17,16 +17,19 @@ class CollectionController{
         $this->prodModel = new productModel();
     }
     
+    //Muestra todas las colecciones
     public function showCollections() {
         $collections = $this->model->getAll();
         $this->view->showCollections($collections);
     }
 
+    //Muestra una colección recibida por parámetro
     public function showCollectionDetail($collectionName){
         $collection = $this->model->getCollectionByName($collectionName);
         $this->view->showProductDetail($collection);
     }
 
+    //Agrega una colección a la base de datos
     public function addCollection() {
         if (empty($_POST['collectionName'])) {
             $this->errorView->showError("Faltan datos obligatorios");
@@ -39,11 +42,13 @@ class CollectionController{
         header("Location: ". BASE_URL. 'collections');
     }
 
+    //Elimina una colección recibida por parámetro de la base de datos
     function deleteCollection($id) {
         $this->model->deleteCollectionDB($id);
         header("Location: ". BASE_URL. 'collections');
     }
 
+    //Edita una colección recibida por parámetro
     public function editCollection($id) {
         if (empty($_POST['collectionName'])) {
             $this->errorView->showError("Faltan datos obligatorios");
