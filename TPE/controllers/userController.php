@@ -24,21 +24,24 @@ class userController {
             $user = $_POST['username'];
             $pass = $_POST['password'];
             $userDb = $this->model->getUserByUsername($user);
-
-            if(!empty($userDb) && ($pass === $userDb->password)){
-                // INICIO LA SESSIÓN Y LOGUEO AL USUARIO
-                session_start();
-                $_SESSION['ID_USER'] = $userDb->id;
-                $_SESSION['USERNAME'] = $userDb->username;
-                //VUELVO AL LISTADO DE PRODUCTOS
-                header('Location: ' . "products");
-            }
-            else {
-                //MUESTRO MENSAJE DE ERROR DE LOGIN
-                $this->view->showLogin("Login incorrecto");
-            }
+        }
+        $hash = $userDb->password;
+        $response = password_verify($pass, $hash);
+        
+        if($response == true){
+            // INICIO LA SESSIÓN Y LOGUEO AL USUARIO
+            session_start();
+            $_SESSION['ID_USER'] = $userDb->id;
+            $_SESSION['USERNAME'] = $userDb->username;
+            //VUELVO AL LISTADO DE PRODUCTOS
+            header('Location: ' . "products");
+        }
+        else {
+            //MUESTRO MENSAJE DE ERROR DE LOGIN
+            $this->view->showLogin("Login incorrecto");
         }
     }
+    
 
     //Se desloguea el usuario
     public function logout() {

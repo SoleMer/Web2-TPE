@@ -1,6 +1,5 @@
 <?php
 
-require_once('db.php');
 require_once('controllers/homeController.php');
 require_once('controllers/productController.php');
 require_once('controllers/collectionController.php');
