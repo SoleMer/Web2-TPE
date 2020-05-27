@@ -3,7 +3,6 @@
 include_once('models/ProductModel.php');
 include_once('views/productView.php');
 include_once('views/errorView.php');
-include_once('helpers/auth.helper.php');
 
 class ProductController {
 
@@ -11,7 +10,6 @@ class ProductController {
     private $view;
     private $collModel;
     private $errorView;
-    private $helper;
   
     public function __construct() {
         $this->model = new productModel();
