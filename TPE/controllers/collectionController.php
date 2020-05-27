@@ -20,7 +20,13 @@ class CollectionController{
     //Muestra todas las colecciones
     public function showCollections() {
         $collections = $this->model->getAll();
-        $this->view->showCollections($collections);
+        $userLogged = AuthHelper::checkLoggedIn();
+        if($userLogged == true){
+            $this->view->showCollectionsABM($collections);
+        }
+        else{
+            $this->view->showCollections($collections);
+        }
     }
 
     //Muestra una colección recibida por parámetro

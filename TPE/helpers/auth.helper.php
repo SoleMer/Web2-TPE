@@ -7,6 +7,16 @@ class AuthHelper {
             return $_SESSION['USERNAME'];
         else
             return null;
-    }   
+    }
+    
+    public static function checkLoggedIn(){
+        session_status();
+        if(!isset($_SESSION['USERNAME'])){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 }
 ?>

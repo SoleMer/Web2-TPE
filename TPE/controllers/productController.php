@@ -3,6 +3,7 @@
 include_once('models/ProductModel.php');
 include_once('views/productView.php');
 include_once('views/errorView.php');
+include_once('helpers/auth.helper.php');
 
 class ProductController {
 
@@ -10,34 +11,39 @@ class ProductController {
     private $view;
     private $collModel;
     private $errorView;
+    private $helper;
   
     public function __construct() {
         $this->model = new productModel();
         $this->view = new productView();
         $this->collModel = new collectionModel();
-    }
-
-    //Chequea que el usuario este logeado
-    private function checkLoggedIn(){
-        session_start();
-        if(!isset($_SESSION['ID_USER'])){
-            header('Location: ' . BASE_URL . "login");
-            die;
-        }
+        $this->helper = new authhelper();
     }
 
     // Muestra todos los productos
     public function showProducts() {
         $products = $this->model->getAll();
         $collections = $this->collModel->getAll();
-        $this->view->showProducts($products,$collections);
+        $userLogged = AuthHelper::checkLoggedIn();
+        if($userLogged == true){
+            $this->view->showProductsABM($products,$collections);
+        }
+        else{
+            $this->view->showProducts($products,$collections);
+        }
     }
 
     //Muestra un producto recibido por parametro
     public function showProductDetail($productName) {
         $product = $this->model->getProductByName($productName);
         $collections = $this->collModel->getAll();
-        $this->view->showProductDetail($product,$collections);
+        $userLogged = AuthHelper::checkLoggedIn();
+        if($userLogged == true){
+            $this->view->showProductDetailABM($product,$collections);
+        }
+        else{
+            $this->view->showProductDetail($product,$collections);
+        }
     }
 
     //Muestra todos los productos listados por colección
