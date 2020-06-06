@@ -1,5 +1,5 @@
 <?php
-require_once('libs/Smarty.class.php');
+require_once('libs/smarty/Smarty.class.php');
 include_once('helpers/auth.helper.php');
 
 class homeView {
