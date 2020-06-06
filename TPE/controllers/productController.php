@@ -60,14 +60,21 @@ class ProductController {
         $name = $_POST['name'];
         $cost = $_POST['cost'];
         $collection = $_POST['id_collection'];
-        
-        $success = $this->model->save($name, $cost, $collection);
-        
+
+        if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" 
+            || $_FILES['input_name']['type'] == "image/png") {
+            $success = $this->model->save($name, $cost, $collection, $_FILES['input_name']['tmp_name']);
+        } else {
+            $success = $this->model->save($name, $cost, $collection);
+        }
+
+        echo ($success);
         if($success)
             header('Location: ' . "products");
         else{
             $this->errorView->showError("Faltan datos obligatorios");
         }
+        
     }
 
     //Elimina el producto recibido por parámetro de la DDBB

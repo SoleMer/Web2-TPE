@@ -35,9 +35,20 @@ class productModel {
     }
 
     // Agrega un producto a la DDBB
-    public function save($name, $cost, $idCollection) {
-        $query = $this->db->prepare('INSERT INTO product (`name`, cost, id_collection) VALUES (?, ?, ?)');
-        return $query->execute([$name, $cost, $idCollection]);
+    public function save($name, $cost, $idCollection, $image = null) {
+        $pathImg = null;
+        if ($image)
+            $pathImg = $this->uploadImage($image);
+        
+        $query = $this->db->prepare('INSERT INTO product (name, cost, id_collection, image) VALUES (?, ?, ?. ?)');
+        echo $query->execute([$name, $cost, $idCollection, $pathImg]);
+
+    }
+
+    private function uploadImage($image){
+        $target = 'upload/products/' . uniqid() . '.jpg';
+        move_uploaded_file($image, $target);
+        return $target;
     }
 
     //Elimina un producto a la DDBB a partir de un id pasado x parámetro

@@ -31,7 +31,7 @@
                     </tr>
                 {/foreach}
                 <tr>
-                    <form action="new" method="POST">
+                    <form action="new" method="POST"  enctype="multipart/form-data">
                         <td></td>
                         <td><input name='name' type="text" class="form-control"  placeholder="Producto"></td>
                         <td><input name='cost' type="number" class="form-control" placeholder="$"></td>
@@ -42,6 +42,7 @@
 	                            {/foreach}
 	                        </select></td>
                         <td><button type="submit" class="btn btn-primary">Agregar</button></td>
+                        <input type="file" name="input_name" id="imageToUpload">
                     </form>
                 </tr>       
             </tbody>

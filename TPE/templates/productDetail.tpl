@@ -8,7 +8,8 @@
 	    {if $collection->id_collection == $product->id_collection}
 	      <p>Colección: {$collection->name}</p>
 	    {/if}
-	  {/foreach}
+    {/foreach}
+    <img src={product->image}></img>
   </div>
   {if isset($username)}
     <form action="{$baseURL}edit/{$product->id_product}" method= "POST" class="col-md-4 fondo-blanco">
