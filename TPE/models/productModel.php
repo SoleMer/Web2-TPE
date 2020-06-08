@@ -40,8 +40,8 @@ class productModel {
         if ($image)
             $pathImg = $this->uploadImage($image);
         
-        $query = $this->db->prepare('INSERT INTO product (name, cost, id_collection, image) VALUES (?, ?, ?. ?)');
-        echo $query->execute([$name, $cost, $idCollection, $pathImg]);
+        $query = $this->db->prepare('INSERT INTO product (name, cost, id_collection, image) VALUES (?, ?, ?, ?)');
+        return $query->execute([$name, $cost, $idCollection, $pathImg]);
 
     }
 

@@ -43,7 +43,7 @@ class productView {
         $this->smarty->assign('title','Product Detail');
         $this->smarty->assign('product', $product);
         $this->smarty->assign('collections', $collections);
-        $this->smarty->display('templates/productEdit.tpl');
+        $this->smarty->display('templates/productVistaNueva.tpl');
     }
 
     //Construye el html para mostrar todos los productos listados por colección

@@ -8,3 +8,21 @@ TABLAS:
         -product (id, name, cost, id_colection)
         -colection (id, name)
         -User (id, username, password)
+
+
+TODO:
+        Optimizar templates.
+        Eliminar imagen.
+        Registro de usuario.
+        Permisos de administrador.
+        Comentarios.
+        Puntaje 1/5.
+        Borrar comentarios.
+
+OPCIONALES:
+        Agregar varias imagenes.
+        Olvide mi contrase;a.
+        Ordenar comentarios.
+
+HECHO:
+        Agregar imagen.
