@@ -19,7 +19,14 @@ class userView {
       $this->smarty->assign('title','Login');
       $this->smarty->assign('error', $error);
       $this->smarty->display('templates/login.tpl');
- }
+   }
+
+   //Construye el html para mostrar el formulario de registro de usuarios
+   public function showRegister($error=null){
+      $this->smarty->assign('title','Register');
+      $this->smarty->assign('error', $error);
+      $this->smarty->display('templates/register.tpl');
+   }
 
 }
 ?>

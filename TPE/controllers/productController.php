@@ -23,12 +23,19 @@ class ProductController {
         $products = $this->model->getAll();
         $collections = $this->collModel->getAll();
         $userLogged = AuthHelper::checkLoggedIn();
+        
         if($userLogged == true){
-            $this->view->showProductsABM($products,$collections);
+            $permitAdmin = AuthHelper::checkAdmin();
+            if($permitAdmin == 1){
+                $this->view->showProducts($products,$collections,$userLogged,$permitAdmin);
+            }
+            else{
+                $this->view->showProducts($products,$collections,$userLogged);
+            }
         }
         else{
             $this->view->showProducts($products,$collections);
-        }
+        } 
     }
 
     //Muestra un producto recibido por parametro
@@ -37,7 +44,13 @@ class ProductController {
         $collections = $this->collModel->getAll();
         $userLogged = AuthHelper::checkLoggedIn();
         if($userLogged == true){
-            $this->view->showProductDetailABM($product,$collections);
+            $permitAdmin = AuthHelper::checkAdmin();
+            if($permitAdmin == 1){
+                $this->view->showProductDetail($product,$collections,$userLogged,$permitAdmin);
+            }
+            else{
+                $this->view->showProductDetail($product,$collections,$userLogged);
+            }
         }
         else{
             $this->view->showProductDetail($product,$collections);

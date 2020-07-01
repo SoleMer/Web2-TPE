@@ -14,36 +14,26 @@ class productView {
         $this->smarty->assign('baseURL', BASE_URL);
     }
 
-    //Construye el html para mostrar todos los productos
-    public function showProducts($products,$collections){
+    //Construye el html para mostrar todos los productos 
+    //+ servicio de ABM si el usuario tiene permisos de administrador
+    public function showProducts($products,$collections,$permitAdmin=null){
         $this->smarty->assign('title','Product List');
         $this->smarty->assign('products', $products);
         $this->smarty->assign('collections', $collections);
+        $this->smarty->assign('permit', $permitAdmin);
         $this->smarty->display('templates/products.tpl');
     }
 
-    //Construye el html para mostrar todos los productos + servicio de ABM
-    public function showProductsABM($products,$collections){
-        $this->smarty->assign('title','Product List');
-        $this->smarty->assign('products', $products);
-        $this->smarty->assign('collections', $collections);
-        $this->smarty->display('templates/productsABM.tpl');
-    }
-
-    //Construye el html para mostrar el detalle de un producto
-    public function showProductDetail($product,$collections){
+    //Construye el html para mostrar el detalle de un producto 
+    //+ los comentarios si el usuario esta loggeado
+    //+ servicio de ABM si el usuario tiene permisos de administrador
+    public function showProductDetail($product,$collections,$userLogged=null,$permitAdmin=null){
         $this->smarty->assign('title','Product Detail');
         $this->smarty->assign('product', $product);
         $this->smarty->assign('collections', $collections);
+        $this->smarty->assign('userLogged', $userLogged);
+        $this->smarty->assign('permit', $permitAdmin);
         $this->smarty->display('templates/productDetail.tpl');
-    }
-
-    //Construye el html para mostrar el detalle de un producto + servicio de ABM
-    public function showProductDetailABM($product,$collections){
-        $this->smarty->assign('title','Product Detail');
-        $this->smarty->assign('product', $product);
-        $this->smarty->assign('collections', $collections);
-        $this->smarty->display('templates/productVistaNueva.tpl');
     }
 
     //Construye el html para mostrar todos los productos listados por colección

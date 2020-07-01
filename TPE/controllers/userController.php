@@ -18,6 +18,11 @@ class userController {
         $this->view->showLogin();
     }
 
+    //Muestra el formulario de registro de usuario.
+    public function showRegister() {
+        $this->view->showRegister();
+    }
+
     //Verifica que el usuario y la contraseña coincidan con las guardadas en la DDBB
     public function verify(){
         if(!empty($_POST['username']) && !empty($_POST['password'])){
@@ -33,6 +38,7 @@ class userController {
             session_start();
             $_SESSION['ID_USER'] = $userDb->id;
             $_SESSION['USERNAME'] = $userDb->username;
+            $_SESSION['ADMIN'] = $userDb->admin;
             //VUELVO AL LISTADO DE PRODUCTOS
             header('Location: ' . "products");
         }
@@ -41,7 +47,33 @@ class userController {
             $this->view->showLogin("Login incorrecto");
         }
     }
-    
+
+    //Recibe datos y agrega nuevo usuario.
+    public function addUser(){
+        //SI LOS DATOS NO ESTAN VACIOS COMPRUEBA QUE LA REPETICION DE CONTRASENA SEA CORRECTA
+        if(!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['repassword'])){
+            if(($_POST['password']) != ($_POST['repassword'])){
+                $this->view->showRegister("Las contrasenas no coinciden");
+            }
+            else{
+                //SI LAS CONTRASENAS COINCIDEN SE GUARDAN LOS DATOS EN VARIABLES
+                $user = $_POST['username']; 
+                $pass = $_POST['password'];    
+                $hash = password_hash($pass, PASSWORD_DEFAULT);
+            }
+        }
+        //AGREGO EL USUARIO A LA DB
+        $this->model->addUser($user,$hash);
+        //OBTENGO LOS DATOS DEL NUEVO USUARIO
+        $userDb = $this->model->getUserByUsername($user);
+        //INICIO LA SESION DEL NUEVO USUARIO
+        session_start();
+        $_SESSION['ID_USER'] = $userDb->id;
+        $_SESSION['USERNAME'] = $userDb->username;
+        $_SESSION['ADMIN'] = $userDb->admin;
+        //VUELVO AL LISTADO DE PRODUCTOS
+        header('Location: ' . "products");
+    }  
 
     //Se desloguea el usuario
     public function logout() {

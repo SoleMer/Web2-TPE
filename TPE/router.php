@@ -24,9 +24,17 @@ switch ($urlParts[0]) {
         $controller = new userController();
         $controller->showLogin();
     break;
+    case 'register':
+        $controller = new userController();
+        $controller->showRegister();
+    break;
     case 'verify':
         $controller = new userController();
         $controller->verify();
+    break;
+    case 'addUser':
+        $controller = new userController();
+        $controller->addUser();
     break;
     case "logout":
         $controller = new UserController();

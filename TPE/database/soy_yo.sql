@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-05-2020 a las 17:18:46
+-- Tiempo de generación: 30-06-2020 a las 03:06:17
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.4
 
@@ -40,7 +40,7 @@ INSERT INTO `collection` (`id_collection`, `name`) VALUES
 (2, 'COVID-19'),
 (3, 'Estudiar'),
 (4, 'Hogar'),
-(7, 'Fit');
+(8, 'nueva');
 
 -- --------------------------------------------------------
 
@@ -52,16 +52,18 @@ CREATE TABLE `product` (
   `id_product` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `cost` decimal(10,0) NOT NULL,
-  `id_collection` int(11) NOT NULL
+  `id_collection` int(11) NOT NULL,
+  `image` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `product`
 --
 
-INSERT INTO `product` (`id_product`, `name`, `cost`, `id_collection`) VALUES
-(3, 'Individuales', '150', 4),
-(4, 'Estuche higienico', '250', 2);
+INSERT INTO `product` (`id_product`, `name`, `cost`, `id_collection`, `image`) VALUES
+(3, 'bbb', '222', 3, NULL),
+(4, 'Estuche higienico', '250', 2, NULL),
+(10, 'f', '5', 2, 'upload/products/5ede414fd5488.jpg');
 
 -- --------------------------------------------------------
 
@@ -72,15 +74,16 @@ INSERT INTO `product` (`id_product`, `name`, `cost`, `id_collection`) VALUES
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
-  `password` varchar(256) NOT NULL
+  `password` varchar(256) NOT NULL,
+  `admin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`id_user`, `username`, `password`) VALUES
-(1, 'admin', '$2y$12$gSCJkjAfZXtCoxr5AShftu1b42E2GXEj7RwiKbMT2JMku0lngZ.zi');
+INSERT INTO `user` (`id_user`, `username`, `password`, `admin`) VALUES
+(1, 'sole', '$2y$12$gSCJkjAfZXtCoxr5AShftu1b42E2GXEj7RwiKbMT2JMku0lngZ.zi', 1);
 
 --
 -- Índices para tablas volcadas
@@ -112,13 +115,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `collection`
 --
 ALTER TABLE `collection`
-  MODIFY `id_collection` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_collection` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `product`
 --
 ALTER TABLE `product`
-  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `user`

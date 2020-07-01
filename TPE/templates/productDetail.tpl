@@ -1,48 +1,38 @@
 {include 'templates/header.tpl'}
 
 <div class="container">
-  <div class="col-md-6 fondo-blanco">
-  <table class="table">
-  <tbody>
-    <tr>
-      <td><h1>{$product->name}</h1></td>
-      <td><p>${$product->cost}</p></td>
-      {foreach from=$collections item=collection}
-	      {if $collection->id_collection == $product->id_collection}
-	        <td><p>Colección: {$collection->name}</p></td>
-	      {/if}
-      {/foreach}
-    </tr>
-    {if isset($product->image)}
-      <tr>
-        <td><img src="{$product->image}"/></td>
-      </tr>
-    {/if}
+  <div col-md-8 offset-col-md-2>
+    <div class="card mb-3" >
+      <div class="row no-gutters">
+        <div class="col-md-8">
+          {if isset($product->image)}
+            <img src="{$product->image}" class="card-img"/>
+          {/if}
+        </div>
+        <div class="col-md-4">
+          <div class="card-body">
+            <h5 class="card-title">{$product->name}</h5>
+            <p class="card-text">${$product->cost}</p>
+            {foreach from=$collections item=collection}
+              {if $collection->id_collection == $product->id_collection}
+                <p class="card-text"><small class="text-muted">Colección: {$collection->name}</small></p>
+              {/if}
+            {/foreach}
 
+            {if isset($userLogged)}
+              {if $permit == 1}
+                {include 'templates/productEdit.tpl'}
+              {/if}
+              {include 'templates/coment.tpl'}
+            {/if}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-md-3 offset-md-1 fondo-blanco">
-    {if isset($username)}
-      <form action="{$baseURL}edit/{$product->id_product}" method= "POST" class="col-md-4 fondo-blanco">
-        <div class="form-group">
-          <label for="productname">Producto</label>
-          <input name='productname' type="text" class="form-control" id="productname">
-        </div>
-        <div class="form-group">
-          <label for="cost">Precio</label>
-          <input name='cost' type="number" class="form-control" id="cost">
-        </div>
-        <div class="form-group">
-          <label for="collection">Coleccion</label>
-          <select name="collection">
-	          {foreach from=$collections item=collection}
-	            <option value='{$collection->id_collection}'>{$collection->name}</option>
-	          {/foreach}
-	        </select>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Guardar</button>
-      </form>
-    {/if}
 </div>
 
+
 {include 'templates/footer.tpl'} 
+
+

@@ -9,6 +9,7 @@ class homeView {
     public function __construct() {
         $authHelper = new AuthHelper();
         $username = $authHelper->getLoggedUserName();
+        $admin = $authHelper->checkAdmin();
         $this->smarty = new Smarty();
         $this->smarty->assign('username', $username);
         $this->smarty->assign('baseURL', BASE_URL);

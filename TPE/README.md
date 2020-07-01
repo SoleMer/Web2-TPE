@@ -11,10 +11,9 @@ TABLAS:
 
 
 TODO:
-        Optimizar templates.
+        Optimizar templates colecciones.
         Eliminar imagen.
         Registro de usuario.
-        Permisos de administrador.
         Comentarios.
         Puntaje 1/5.
         Borrar comentarios.
@@ -26,3 +25,5 @@ OPCIONALES:
 
 HECHO:
         Agregar imagen.
+        Optimizar templates productos.
+        Permisos de administrador.
