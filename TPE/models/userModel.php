@@ -46,5 +46,11 @@ class userModel {
         $query = $this->db->prepare('UPDATE `user` SET `admin`= ?  WHERE `username` = ?');
         return $query->execute([$admin,$user]);
     }
+
+    //Elimina un usuario 
+    public function deleteUser($id){
+        $query = $this->db->prepare('DELETE FROM `user` WHERE `id_user`= ?');
+        return $query->execute([$id]);
+    }
 }
 ?>

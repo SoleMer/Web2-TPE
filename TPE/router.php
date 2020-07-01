@@ -48,6 +48,10 @@ switch ($urlParts[0]) {
         $controller = new UserController();
         $controller->usersPermit($urlParts[1]);
     break;
+    case "deleteUser":
+        $controller = new UserController();
+        $controller->deleteUser($urlParts[1]);
+    break;
     case 'products':
         $controller = new productController();
         $controller->showProducts(); 

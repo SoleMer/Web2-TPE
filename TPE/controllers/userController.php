@@ -110,6 +110,12 @@ class userController {
         $this->model->changePermitAdmin($user->username, $admin);
         header("Location: " . BASE_URL. 'users');
     }
+
+    //Elimina un usuario
+    public function deleteUser($id){
+        $this->model->deleteUser($id);
+        header("Location: ". BASE_URL. 'users');
+    }
         
 }
 
