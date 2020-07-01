@@ -32,5 +32,19 @@ class userModel {
         $query = $this->db->prepare('INSERT INTO user (username, password, admin) VALUES (?, ?, ?)');
         return $query->execute([$user, $password, 0]);
     }
+
+    //Obtiene el listado de usuarios
+    public function getUsers(){
+        $query = $this->db->prepare('SELECT * FROM user');
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    //Cambia permisos de administrador
+    public function changePermitAdmin($user, $admin){
+        var_dump($admin);
+        $query = $this->db->prepare('UPDATE `user` SET `admin`= ?  WHERE `username` = ?');
+        return $query->execute([$admin,$user]);
+    }
 }
 ?>

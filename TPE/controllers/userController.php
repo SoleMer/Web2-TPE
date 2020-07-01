@@ -15,7 +15,16 @@ class userController {
 
     //Muestra el formulario de login
     public function showLogin() {
-        $this->view->showLogin();
+        $userLogged = AuthHelper::checkLoggedIn();
+        if($userLogged == true){
+            $permitAdmin = AuthHelper::checkAdmin();
+            if($permitAdmin == 1){
+                $this->view->showLogin(null,$userLogged,$permitAdmin);
+            }
+        }
+        else{
+            $this->view->showLogin();
+        }
     }
 
     //Muestra el formulario de registro de usuario.
@@ -80,6 +89,26 @@ class userController {
         session_start();
         session_destroy();
         header("Location: " . 'login');
+    }
+
+    //Muestra la lista de usuarios
+    public function showUsers(){
+        $users = $this->model->getUsers();
+        $this->view->showUsers($users);
+    }
+
+    //Otorga o quita permisos de administrador
+    public function usersPermit($username){
+        $user= $this->model->getUserByUsername($username);
+        $admin= $user->admin;
+        if ($admin == 0) {
+            $admin = 1;
+        }
+        else{
+            $admin = 0;
+        }
+        $this->model->changePermitAdmin($user->username, $admin);
+        header("Location: " . BASE_URL. 'users');
     }
         
 }

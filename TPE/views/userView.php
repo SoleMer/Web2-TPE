@@ -15,9 +15,11 @@ class userView {
    }
 
    //Construye el html para mostrar el formulario de login
-   public function showLogin($error=null){
+   public function showLogin($error=null,$userLogged=null,$permit=null){
       $this->smarty->assign('title','Login');
       $this->smarty->assign('error', $error);
+      $this->smarty->assign('userLogged', $userLogged);
+      $this->smarty->assign('permit', $permit);
       $this->smarty->display('templates/login.tpl');
    }
 
@@ -28,6 +30,12 @@ class userView {
       $this->smarty->display('templates/register.tpl');
    }
 
+   //Muestra el listado de usuarios
+   public function showUsers($users){
+      $this->smarty->assign('title','Users');
+      $this->smarty->assign('users', $users);
+      $this->smarty->display('templates/users.tpl');
+   }
 }
 ?>
 

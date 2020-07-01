@@ -40,6 +40,14 @@ switch ($urlParts[0]) {
         $controller = new UserController();
         $controller->logout();
     break;
+    case "users":
+        $controller = new UserController();
+        $controller->showUsers();
+    break;
+    case "permit":
+        $controller = new UserController();
+        $controller->usersPermit($urlParts[1]);
+    break;
     case 'products':
         $controller = new productController();
         $controller->showProducts(); 

@@ -24,6 +24,11 @@
     <form action="register">
       <button type="submit" class="btn btn-primary">Registrarme</button>
     </form>
+    {if isset($userLogged) && ($permit == 1)}
+      <form action="users">
+        <button type="submit" class="btn btn-primary">Usuarios</button>
+      </form>
+    {/if}
   </div>
 </div>
 
