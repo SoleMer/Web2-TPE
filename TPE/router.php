@@ -76,6 +76,10 @@ switch ($urlParts[0]) {
         $controller = new productController();
         $controller->editProduct($urlParts[1]);
     break;
+    case 'deleteImage':
+        $controller = new productController();
+        $controller->deleteImage($urlParts[1]);
+    break;
     case 'collections':
         $controller = new collectionController();
         $controller->showCollections();

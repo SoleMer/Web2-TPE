@@ -19,3 +19,4 @@
 
         <button type="submit" class="btn btn-primary">Guardar</button>
 </form> 
+<a href='{$baseURL}deleteImage/{$product->id_product}'><button type="submit" class="btn btn-primary">Eliminar imagen</button></a>

@@ -65,7 +65,6 @@ class productModel {
 
     //Edita un producto de la DDBB
     public function editProduct($id, $name, $cost, $collection, $image = null){
-        var_dump($image);
         $pathImg = null;
         if ($image){
             $pathImg = $this->uploadImageInProduct($image,$id);

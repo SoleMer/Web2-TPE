@@ -112,14 +112,12 @@ class ProductController {
         }else{
             $collection = $_POST['collection'];
         }
-        var_dump($name,$cost,$collection);
         if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" 
             || $_FILES['input_name']['type'] == "image/png") {
             $success = $this->model->editProduct($id,$name, $cost, $collection, $_FILES['input_name']['tmp_name']);
         } else {
-            $success = $this->model->editProductDB($id, $name, $cost, $collection);
+            $success = $this->model->editProduct($id, $name, $cost, $collection);
         }
-        var_dump($success);
         if($success)
             header("Location: ". BASE_URL. 'products');
         else{
@@ -127,6 +125,21 @@ class ProductController {
         }
         
     } 
+
+    //Eliminar imagen
+    public function deleteImage($id){
+        $product= $this->model->getProductById($id);
+        $name= $product->name;
+        $cost= $product->cost;
+        $collection= $product->id_collection;
+
+        $success = $this->model->editProduct($id, $name, $cost, $collection, null);
+        if($success)
+            header("Location: ". BASE_URL. 'products');
+        else{
+            $this->errorView->showError("No se pudo eliminar la imagen.");
+        }
+    }
 }
 
 ?>

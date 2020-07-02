@@ -12,7 +12,6 @@ TABLAS:
 
 TODO:
         Optimizar templates colecciones.
-        Eliminar imagen.
         
         Comentarios.
         Puntaje 1/5.
@@ -32,3 +31,4 @@ HECHO:
         Asignar o quitar permisos de administración a cualquier usuario.
         Eliminar usuarios.
         Agregar imagen a un producto guardado previamente.
+        Eliminar imagen.
