@@ -27,10 +27,10 @@ class ProductController {
         if($userLogged == true){
             $permitAdmin = AuthHelper::checkAdmin();
             if($permitAdmin == 1){
-                $this->view->showProducts($products,$collections,$userLogged,$permitAdmin);
+                $this->view->showProducts($products,$collections,$permitAdmin);
             }
             else{
-                $this->view->showProducts($products,$collections,$userLogged);
+                $this->view->showProducts($products,$collections);
             }
         }
         else{
@@ -80,8 +80,6 @@ class ProductController {
         } else {
             $success = $this->model->save($name, $cost, $collection);
         }
-
-        echo ($success);
         if($success)
             header('Location: ' . "products");
         else{
@@ -98,17 +96,36 @@ class ProductController {
 
     //Edita un producto recibido por parámetro
     public function editProduct($id) {
-        if (empty($_POST['productname']) || empty($_POST['cost']) || empty($_POST['collection'])) {
-            $this->errorView->showError("Faltan datos obligatorios");
-            die();
+        $product= $this->model->getProductById($id);
+        if (empty($_POST['productname'])){
+            $name= $product->name;
+        }else{
+            $name = $_POST['productname'];
         }
-        $name = $_POST['productname'];
-        $cost = $_POST['cost'];
-        $collection = $_POST['collection'];
+        if (empty($_POST['cost'])){
+            $cost= $product->cost;
+        }else{
+            $cost = $_POST['cost'];
+        }
+        if (empty($_POST['collection'])) {
+            $collection= $product->id_collection;
+        }else{
+            $collection = $_POST['collection'];
+        }
+        var_dump($name,$cost,$collection);
+        if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" 
+            || $_FILES['input_name']['type'] == "image/png") {
+            $success = $this->model->editProduct($id,$name, $cost, $collection, $_FILES['input_name']['tmp_name']);
+        } else {
+            $success = $this->model->editProductDB($id, $name, $cost, $collection);
+        }
+        var_dump($success);
+        if($success)
+            header("Location: ". BASE_URL. 'products');
+        else{
+            $this->errorView->showError("Faltan datos obligatorios");
+        }
         
-        $this->model->editProductDB($id, $name, $cost, $collection);
-
-        header("Location: ". BASE_URL. 'products');
     } 
 }
 

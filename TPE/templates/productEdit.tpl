@@ -1,4 +1,4 @@
-<form action="{$baseURL}edit/{$product->id_product}" method= "POST" class="col-md-4 fondo-blanco">
+<form action="{$baseURL}edit/{$product->id_product}" method= "POST" class="col-md-4 fondo-blanco" enctype="multipart/form-data">
     <div class="form-group">
         <label for="productname">Producto</label>
         <input name='productname' type="text" class="form-control" id="productname">
@@ -18,4 +18,4 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Guardar</button>
-</form>
+</form> 

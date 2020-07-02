@@ -19,7 +19,10 @@ class userController {
         if($userLogged == true){
             $permitAdmin = AuthHelper::checkAdmin();
             if($permitAdmin == 1){
-                $this->view->showLogin(null,$userLogged,$permitAdmin);
+                $this->view->showLogin("Sesion iniciada",$userLogged,$permitAdmin);
+            }
+            else{
+                $this->view->showLogin("Sesion iniciada",$userLogged);
             }
         }
         else{

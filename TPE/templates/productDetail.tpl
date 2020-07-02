@@ -20,7 +20,7 @@
             {/foreach}
 
             {if isset($userLogged)}
-              {if $permit == 1}
+              {if $permit == 1} 
                 {include 'templates/productEdit.tpl'}
               {/if}
               {include 'templates/coment.tpl'}

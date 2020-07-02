@@ -25,9 +25,10 @@ OPCIONALES:
         Ordenar comentarios.
 
 HECHO:
-        Agregar imagen.
+        Subir producto con imagen.
         Optimizar templates productos.
         Permisos de administrador.
         Registro de usuario.
         Asignar o quitar permisos de administración a cualquier usuario.
         Eliminar usuarios.
+        Agregar imagen a un producto guardado previamente.

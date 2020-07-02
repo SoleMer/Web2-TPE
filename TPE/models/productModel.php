@@ -51,6 +51,12 @@ class productModel {
         return $target;
     }
 
+    private function uploadImageInProduct($image,$id){
+        $target = 'upload/products/' . $id . '.jpg';
+        move_uploaded_file($image, $target);
+        return $target;
+    }
+
     //Elimina un producto a la DDBB a partir de un id pasado x parámetro
     function deleteProductDB($id) {
         $query = $this->db->prepare('DELETE FROM `product` WHERE `id_product`= ?');
@@ -58,8 +64,20 @@ class productModel {
     }
 
     //Edita un producto de la DDBB
-    public function editProductDB($id, $name, $cost, $collection){
-        $query = $this->db->prepare('UPDATE `product` SET `name`= ? , `cost`= ?, `id_collection`= ?  WHERE `id_product` = ?');
-        return $query->execute([$name,$cost,$collection,$id]);
+    public function editProduct($id, $name, $cost, $collection, $image = null){
+        var_dump($image);
+        $pathImg = null;
+        if ($image){
+            $pathImg = $this->uploadImageInProduct($image,$id);
+        }
+        $query = $this->db->prepare('UPDATE `product` SET `name`= ? , `cost`= ?, `id_collection`= ?, `image`=?  WHERE `id_product` = ?');
+        return $query->execute([$name,$cost,$collection,$pathImg,$id]);
+    }
+
+    //Obtiene un producto de la DB a partir del id
+    public function getProductById($id){
+        $query = $this->db->prepare('SELECT * FROM `product` WHERE id_product = ?');
+        $query->execute(array(($id)));
+        return $query->fetch(PDO::FETCH_OBJ);
     }
 }

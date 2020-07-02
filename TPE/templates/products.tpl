@@ -26,13 +26,13 @@
 	                            <td>{$collection->name}</td>
 	                        {/if}
                         {/foreach}
-                        {if $permit==1}
-                            <td><a href="{$baseURL}delete/{$product->id_product}"><button type="submit" class="btn btn-primary" name= "id" value= "{$product->id_product}">Eliminar</button></a></td>
+                        {if $permit == 1}
                             <td><a href="product/{$product->name}"><button type="submit" class="btn btn-primary">Editar</button></a></td>
-                        {/if}}
+                            <td><a href="{$baseURL}delete/{$product->id_product}"><button type="submit" class="btn btn-primary" name= "id" value= "{$product->id_product}">Eliminar</button></a></td>
+                        {/if}
                     </tr>
                 {/foreach}
-                {if $permit==1}
+                {if $permit == 1}
                     <tr>
                         <form action="new" method="POST"  enctype="multipart/form-data">
                             <td></td>
@@ -43,11 +43,12 @@
 	                                {foreach from=$collections item=collection}
 	                                    <option value='{$collection->id_collection}'>{$collection->name}</option>
 	                                {/foreach}
-	                            </select></td>
+                                </select></td>
+                            <td><input type="file" name="input_name" id="imageToUpload"></td>
                             <td><button type="submit" class="btn btn-primary">Agregar</button></td>
                         </form>
                     </tr>       
-                {/if}}
+                {/if}
             </tbody>
         </table>
     </div>
