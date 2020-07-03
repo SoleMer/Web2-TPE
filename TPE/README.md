@@ -11,9 +11,7 @@ TABLAS:
 
 
 TODO:
-        Optimizar templates colecciones.
-        
-        Comentarios.
+         Comentarios.
         Puntaje 1/5.
         Borrar comentarios.
 
@@ -32,3 +30,4 @@ HECHO:
         Eliminar usuarios.
         Agregar imagen a un producto guardado previamente.
         Eliminar imagen.
+        Optimizar templates colecciones.

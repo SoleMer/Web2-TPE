@@ -22,10 +22,16 @@ class CollectionController{
         $collections = $this->model->getAll();
         $userLogged = AuthHelper::checkLoggedIn();
         if($userLogged == true){
-            $this->view->showCollectionsABM($collections);
+            $permitAdmin = AuthHelper::checkAdmin();
+            if($permitAdmin == 1){
+                $this->view->showCollectionsABM($collections,$userLogged,$permitAdmin);
+            }
+            else{
+                $this->view->showCollectionsABM($collections);
+            }
         }
         else{
-            $this->view->showCollections($collections);
+            $this->view->showCollectionsABM($collections);
         }
     }
 

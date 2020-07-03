@@ -14,18 +14,14 @@ class CollectionView {
         $this->smarty->assign('baseURL', BASE_URL);
     }
 
-    //Construye el html para mostrar todas las colecciones
-    function showCollections($collections){
+    //Construye el html para mostrar todas las colecciones 
+    //+ servicio de ABM si el usuario esta logeado y es administrador
+    function showCollectionsABM($collections, $userLogged=null, $permit=null){
         $this->smarty->assign('title','Collections List');
         $this->smarty->assign('collections', $collections);
+        $this->smarty->assign('userLogged', $userLogged);
+        $this->smarty->assign('permit', $permit);
         $this->smarty->display('templates/collections.tpl');
-    }
-
-    //Construye el html para mostrar todas las colecciones +servicio de ABM
-    function showCollectionsABM($collections){
-        $this->smarty->assign('title','Collections List');
-        $this->smarty->assign('collections', $collections);
-        $this->smarty->display('templates/collectionsABM.tpl');
     }
 
     //Construye el html para mostrar una colección
