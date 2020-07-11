@@ -27,6 +27,20 @@ class CommentModel {
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
+    //OBTENER TODOS LOS COMENTARIOS DE LA DB EN ORDEN ASCENDENTE
+    public function getAllCommentsASC($id_product){
+        $query = $this->db->prepare('SELECT * FROM comment WHERE id_product = ? ORDER BY score ASC');
+        $response = $query->execute([$id_product]);
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    //OBTENER TODOS LOS COMENTARIOS DE LA DB EN RDEN DESCENDENTE
+    public function getAllCommentsDESC($id_product){
+        $query = $this->db->prepare('SELECT * FROM comment WHERE id_product = ? ORDER BY score DESC');
+        $response = $query->execute([$id_product]);
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
     //AGREGAR UN COMENTARIO A LA DB
     public function addComment($product, $user, $text, $score){
         $query = $this->db->prepare('INSERT INTO comment (id_product, user, text, score) VALUES (?, ?, ?, ?)');

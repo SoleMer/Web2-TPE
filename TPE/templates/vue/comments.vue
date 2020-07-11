@@ -7,6 +7,9 @@
 
     <div v-if="!loading" >
         <div v-if="!error">
+            <h5>Ordenar por: </h5>
+            <button v-on:click="ordenar(1)" class="btn btn-primary">Menor puntaje</button>
+            <button v-on:click="ordenar(2)" class="btn btn-primary">Mayor puntaje</button>
             <div v-for="comment in allComments" class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">{{comment.user}}</h5>

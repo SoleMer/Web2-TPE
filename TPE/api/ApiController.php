@@ -27,6 +27,23 @@ class ApiController {
         }
     }
 
+    //OBTENER TODOS LOS COMENTARIOS ORDENADOS
+    public function getCommentsOrder($params = []){
+        $product = $params[':ID'];
+        $order = $params[':ORDER'];
+        if($order == 1){
+            $comments = $this->model->getAllCommentsASC($product);
+        }
+        else{
+            $comments = $this->model->getAllCommentsDESC($product);
+        }
+
+        if ($comments)
+            $this->view->response($comments, 200);
+        else
+            $this->view->response(null, 404);
+    }
+
     //AGREGAR UN COMENTARIO
     public function addComment($product = []){
         $comment = json_decode(file_get_contents("php://input"));

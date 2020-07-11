@@ -24,6 +24,10 @@ let comments = new Vue({
         eliminar: function(id){ 
             deleteComment(id);
         },
+
+        ordenar: function(orden){
+          getCommentsOrder(orden);
+        },
     },
 });
 
@@ -31,11 +35,9 @@ let comments = new Vue({
 function getComments(){
     comments.loading = true;
     let id_product = product;
-    console.log("id_product ",id_product);
     fetch('api/comments/product/' + id_product)
         .then(response => response.json())
         .then(commentsInProduct =>{
-            console.log(commentsInProduct);
             if(commentsInProduct == null){
                 comments.error = true;
             }
@@ -47,6 +49,24 @@ function getComments(){
     
 };
 getComments();
+
+//OBTENER LOS COMENTARIOS EN EL ORDEN SELECCIONADO
+function getCommentsOrder(orden){
+  comments.loading = true;
+  let id_product = product;
+  fetch('api/comments/product/' + id_product + '/' + orden)
+      .then(response => response.json())
+      .then(commentsOrder =>{
+          console.log(commentsOrder);
+          if(commentsOrder == null){
+              comments.error = true;
+          }
+          else{
+              comments.allComments = commentsOrder;
+          }
+          comments.loading = false;
+      })
+};
 
 //VUE PARA EL FORMULARIO PARA AGREGAR UN COMENTARIO
 let addComment = new Vue({
@@ -91,6 +111,7 @@ let addComment = new Vue({
     })
     .then((response) => {
         if (response.ok){
+            alert('Comentario agregado.');
             getComments();
         }
         else{

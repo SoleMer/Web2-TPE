@@ -11,12 +11,11 @@ TABLAS:
 
 
 TODO:
-        Hecho.
+        
 
 OPCIONALES:
         Agregar varias imagenes.
         Olvide mi contrase;a.
-        Ordenar comentarios.
 
 HECHO:
         Subir producto con imagen.
@@ -31,3 +30,4 @@ HECHO:
         Comentarios.
         Puntaje 1/5.
         Borrar comentarios.
+        Ordenar comentarios.
