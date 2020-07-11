@@ -17,7 +17,8 @@ let comments = new Vue({
         loading: true, //MIENTRAS CARGAN LOS COMENTARIOS MUESTRA QUE ESTA CARGANDO
         error: false, //SI NO SE OBTIENEN COMENTARIOS SE MOSTRARA EL ERROR
         allComments: [], 
-        permit: admin //PERMISOS DE ADMINISTRADOR
+        permit: admin, //PERMISOS DE ADMINISTRADOR
+        finalScore: null
     },
     methods: {
 
@@ -43,6 +44,7 @@ function getComments(){
             }
             else{
                 comments.allComments = commentsInProduct;
+                comments.finalScore = getFinalScore();
             }
             comments.loading = false;
         })
@@ -63,6 +65,7 @@ function getCommentsOrder(orden){
           }
           else{
               comments.allComments = commentsOrder;
+              comments.finalScore = getFinalScore();
           }
           comments.loading = false;
       })
@@ -167,4 +170,14 @@ function pintar(star){
     break;
   }
 
+}
+
+function getFinalScore(){
+  let counter = 0;
+  let sumScore = 0;
+  comments.allComments.forEach(comment => {
+    counter++;
+    sumScore += parseInt(comment.score);
+  });
+  return sumScore / counter;
 }

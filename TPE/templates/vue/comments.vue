@@ -7,6 +7,7 @@
 
     <div v-if="!loading" >
         <div v-if="!error">
+            <h3>Puntaje del producto: {{finalScore}}</h3>
             <h5>Ordenar por: </h5>
             <button v-on:click="ordenar(1)" class="btn btn-primary">Menor puntaje</button>
             <button v-on:click="ordenar(2)" class="btn btn-primary">Mayor puntaje</button>

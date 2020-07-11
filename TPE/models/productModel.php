@@ -79,4 +79,19 @@ class productModel {
         $query->execute(array(($id)));
         return $query->fetch(PDO::FETCH_OBJ);
     }
+
+/*    public function editProduct($id, $name, $cost, $collection, $image1 = null, $image2 = null, $image3 = null){
+        $pathImg = null;
+        if ($image1){
+            $pathImg1 = $this->uploadImageInProduct($image1,$id);
+        }
+        if ($image2){
+            $pathImg2 = $this->uploadImageInProduct($image2,$id);
+        }
+        if ($image3){
+            $pathImg3 = $this->uploadImageInProduct($image3,$id);
+        }
+        $query = $this->db->prepare('UPDATE `product` SET `name`= ? , `cost`= ?, `id_collection`= ?, `image1`=? `image2`=? `image3`=?  WHERE `id_product` = ?');
+        return $query->execute([$name,$cost,$collection,$pathImg1,$pathImg2,$pathImg3,$id]);
+    } */
 }
