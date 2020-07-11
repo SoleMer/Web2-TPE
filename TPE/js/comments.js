@@ -64,30 +64,7 @@ let addComment = new Vue({
         this.form.puntuacion = starNumber;
       },
 
-
-      /* metodos para cambiar el valor de la puntuacion
-      five_stars() {
-        this.form.calificacion = 5;
-        this.star = "su calificacion es de 5 estrellas";
-      },
-      four_stars() {
-        this.form.calificacion = 4;
-        this.star = "su calificacion es de 4 estrellas";
-      },
-      three_stars() {
-        this.form.calificacion = 3;
-        this.star = "su calificacion es de 3 estrellas";
-      },
-      two_stars() {
-        this.form.calificacion = 2;
-        this.star = "su calificacion es de 2 estrellas";
-      },
-      one_stars() {
-        this.form.calificacion = 1;
-        this.star = "su calificacion es de 1 estrellas";
-      },*/
       save() {
-        //metodo qe guarda via api el comentario
         this.form.comentario = this.$refs["comment"].value;
         let comment = this.form.comentario;
         let score = this.form.puntuacion;

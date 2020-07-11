@@ -11,7 +11,7 @@
   </p>
       <input type="text" ref="comment" placeholder="comentario"></input>
    <br>
-      <button class="btn btn-primary" @click="save">GUARDAR COMENTARIO</button>
+      <button class="btn btn-primary" @click="save">GUARDAR</button>
       </div>
 </section>
  
