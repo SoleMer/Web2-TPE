@@ -1,26 +1,27 @@
 "use strict"
 
+//ONTENGO LOS VALORES DESDE EL TPL
 let product = document.querySelector("#id_product").value; 
-let id_user = document.querySelector("#user").value; 
-console.log('id_user: ', id_user);
+let username = document.querySelector("#username").value; 
 let user_permit = document.querySelector("#permit").value;
-console.log('user_permit: ', user_permit);
 let admin = false;
+//DOY ACCESO A LOS PERMISOS DE ADMINISTRADOR
 if(user_permit==1){
     admin = true;
 };
 
+//VUE PARA MOSTRAR LOS COMENTARIOS
 let comments = new Vue({
     el: "#comments",
     data: {
-        loading: true,
-        error: false,
-        allComments: [], //falta obtener el username a partir del id_user
-        permit: admin
+        loading: true, //MIENTRAS CARGAN LOS COMENTARIOS MUESTRA QUE ESTA CARGANDO
+        error: false, //SI NO SE OBTIENEN COMENTARIOS SE MOSTRARA EL ERROR
+        allComments: [], 
+        permit: admin //PERMISOS DE ADMINISTRADOR
     },
     methods: {
 
-        eliminar: function(id){
+        eliminar: function(id){ 
             deleteComment(id);
         },
     },
@@ -47,9 +48,8 @@ function getComments(){
 };
 getComments();
 
-//EDITAR NOMBRES Y DETALLES
+//VUE PARA EL FORMULARIO PARA AGREGAR UN COMENTARIO
 let addComment = new Vue({
-    //Vue para añadir nuevo comentario
     el: "#addComment",
     data: {
       form: {
@@ -59,11 +59,13 @@ let addComment = new Vue({
     },
     methods: {
 
+      //SE LEE EL PUNTAJE SELECCIONADO
       readScore(starNumber){
         pintar(starNumber);
         this.form.puntuacion = starNumber;
       },
 
+      //SE GUARDAN LOS DATOS DE PUNTAJE Y COMENTARIO
       save() {
         this.form.comentario = this.$refs["comment"].value;
         let comment = this.form.comentario;
@@ -73,10 +75,11 @@ let addComment = new Vue({
     },
   });
 
+  //AGREGA EL COMENTARIO A LA API
   function saveComment(score, comment) {
     let newComment = {
       id_product: product,
-      id_user: id_user,
+      user: username,
       text: comment,
       score: score,
     };
@@ -98,8 +101,8 @@ let addComment = new Vue({
         console.log(error);
       })
   };
-//EDITAR NOMBRES Y DETALLES
 
+//ELIMINA EL COMENTARIO 
 function deleteComment(id){
     fetch('api/comments/' + id, { method: 'DELETE' })
         .then((response) => { return response.text() })
@@ -113,8 +116,8 @@ function deleteComment(id){
         })
 };
 
+//PINTA LA CANTIDAD DE ESTRELLAS CORRESPONDIENTES AL PUNTAJE SELECCIONADO
 function pintar(star){
-
   switch (star) {
     case 1:
       document.getElementById("star1").src="img/estrellaRellena.jpg";
@@ -144,4 +147,3 @@ function pintar(star){
   }
 
 }
-

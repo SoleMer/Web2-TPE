@@ -50,13 +50,13 @@ class ProductController {
             $userData = AuthHelper::getUserData();
             $username = ($userData["userName"]);
             $user = $this->userModel->getUserByUsername($username);
-            $id_user = $user->id_user;
+            //$id_user = $user->id_user;
             $permitAdmin = AuthHelper::checkAdmin();
             if($permitAdmin == 1){
-                $this->view->showProductDetail($product,$collections,$userLogged,$permitAdmin,$id_user);
+                $this->view->showProductDetail($product,$collections,$userLogged,$permitAdmin,$user);
             }
             else{
-                $this->view->showProductDetail($product,$collections,$userLogged,null,$id_user);
+                $this->view->showProductDetail($product,$collections,$userLogged,null,$user);
             }
         }
         else{

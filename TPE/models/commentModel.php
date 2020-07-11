@@ -20,17 +20,20 @@ class CommentModel {
         }
     }
 
+    //OBTENER TODOS LOS COMENTARIOS DE LA DB
     public function getAllComments($id_product){
         $query = $this->db->prepare('SELECT * FROM comment WHERE id_product = ?');
         $response = $query->execute([$id_product]);
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
+    //AGREGAR UN COMENTARIO A LA DB
     public function addComment($product, $user, $text, $score){
-        $query = $this->db->prepare('INSERT INTO comment (id_product, id_user, text, score) VALUES (?, ?, ?, ?)');
+        $query = $this->db->prepare('INSERT INTO comment (id_product, user, text, score) VALUES (?, ?, ?, ?)');
         return $query->execute([$product, $user, $text, $score]);
     }
 
+    //ELIMINAR UN COMENTARIO
     public function deleteComment($commentId){
         $query = $this->db->prepare('DELETE FROM comment WHERE id_comment = ?');
         return $query->execute([$commentId]);

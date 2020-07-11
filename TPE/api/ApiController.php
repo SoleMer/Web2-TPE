@@ -1,17 +1,21 @@
 <?php
 require_once 'models/commentModel.php';
 require_once 'api/APIView.php';
+require_once 'models/userModel.php';
 
 class ApiController {
 
     private $model;
     private $view;
+    private $userModel;
 
     public function __construct(){
         $this->model = new CommentModel();
         $this->view = new APIView();
+        $this->userModel = new userModel();
     }
-    
+
+    //OBTENER TODOS LOS COMENTARIOS
     public function getComments($params = []){
         if (!empty($params)) {
             $product = $params[':ID'];
@@ -23,9 +27,10 @@ class ApiController {
         }
     }
 
+    //AGREGAR UN COMENTARIO
     public function addComment($product = []){
         $comment = json_decode(file_get_contents("php://input"));
-        $success = $this->model->addComment($comment->id_product, $comment->id_user, $comment->text, $comment->score);
+        $success = $this->model->addComment($comment->id_product, $comment->user, $comment->text, $comment->score);
         
         if($success)
             $this->view->response($comments, 200);
@@ -34,6 +39,7 @@ class ApiController {
         }
     }
 
+    //ELIMINA UN COMENTARIO
     public function deleteComment($params = []){
         $comment = $params[':ID'];
         $success = $this->model->deleteComment($comment);

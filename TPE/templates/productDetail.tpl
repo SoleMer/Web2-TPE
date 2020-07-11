@@ -31,11 +31,11 @@
     </div>
     {include 'templates/vue/comments.vue'}
     {if isset($userLogged)}
-      <input type="hidden" id="user" value="{$user_id}">Escribe un comentario: </input> 
+      <input type="hidden" id="username" value="{$user->username}">Escribe un comentario: </input> 
       <input type="hidden" id="permit" value="{$permit}"></input> 
       {include 'templates/vue/formComment.vue'}
     {else}
-    <input type="hidden" id="user" value="0">Registrate para dejar un comentario.</input> 
+    <input type="hidden" id="username" value="">Registrate para dejar un comentario.</input> 
     <input type="hidden" id="permit" value="0"></input> 
     {/if}
   </div>

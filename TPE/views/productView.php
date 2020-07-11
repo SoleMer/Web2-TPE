@@ -27,13 +27,13 @@ class productView {
     //Construye el html para mostrar el detalle de un producto 
     //+ los comentarios si el usuario esta loggeado
     //+ servicio de ABM si el usuario tiene permisos de administrador
-    public function showProductDetail($product,$collections,$userLogged=null,$permitAdmin=null,$user_id=null){
+    public function showProductDetail($product,$collections,$userLogged=null,$permitAdmin=null,$user=null){
         $this->smarty->assign('title','Product Detail');
         $this->smarty->assign('product', $product);
         $this->smarty->assign('collections', $collections);
         $this->smarty->assign('userLogged', $userLogged);
         $this->smarty->assign('permit', $permitAdmin);
-        $this->smarty->assign('user_id', $user_id);
+        $this->smarty->assign('user', $user);
         $this->smarty->display('templates/productDetail.tpl');
     }
 

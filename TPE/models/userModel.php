@@ -27,6 +27,12 @@ class userModel {
         return $query->fetch(PDO::FETCH_OBJ);      
     }
 
+    public function getUserById($idUser) {
+        $query = $this->db->prepare('SELECT * FROM `user` WHERE id_user = ?');
+        $query->execute(array(($idUser)));
+        return $query->fetch(PDO::FETCH_OBJ);      
+    }
+
     //Agrega un nuevo usuario
     public function addUser($user,$password){
         $query = $this->db->prepare('INSERT INTO user (username, password, admin) VALUES (?, ?, ?)');

@@ -9,7 +9,7 @@
         <div v-if="!error">
             <div v-for="comment in allComments" class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">{{comment.username}}</h5>
+                    <h5 class="card-title">{{comment.user}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted">Puntuacion: {{comment.score}}</h6>
                     <p class="card-text">{{comment.text}}</p>
                     <button v-if="permit" v-on:click="eliminar(comment.id_comment)" class="btn btn-primary">Eliminar</button>    
