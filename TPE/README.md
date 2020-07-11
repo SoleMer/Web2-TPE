@@ -11,10 +11,7 @@ TABLAS:
 
 
 TODO:
-         Comentarios.
-        Puntaje 1/5.
-        Borrar comentarios.
-
+        Hecho.
 
 OPCIONALES:
         Agregar varias imagenes.
@@ -31,3 +28,6 @@ HECHO:
         Agregar imagen a un producto guardado previamente.
         Eliminar imagen.
         Optimizar templates colecciones.
+        Comentarios.
+        Puntaje 1/5.
+        Borrar comentarios.

@@ -9,6 +9,7 @@
     <title>Soy Yo</title>
     <link rel="stylesheet" href="css/soyyo.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>

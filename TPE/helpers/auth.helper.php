@@ -29,7 +29,7 @@ class AuthHelper {
         if (!isset($_SESSION['USERNAME']))
             return null;
         else {
-            $userData['id'] = $_SESSION['ID_USER'];
+            $userData['id_user'] = $_SESSION['ID_USER'];
             $userData['userName'] = $_SESSION['USERNAME'];
             $userData['admin'] = $_SESSION['ADMIN'];
             return  $userData;

@@ -13,6 +13,7 @@
           <div class="card-body">
             <h5 class="card-title">{$product->name}</h5>
             <p class="card-text">${$product->cost}</p>
+            <input type="hidden" id="id_product" value="{$product->id_product}" class="card-text">${$product->id_product}</p>
             {foreach from=$collections item=collection}
               {if $collection->id_collection == $product->id_collection}
                 <p class="card-text"><small class="text-muted">Colección: {$collection->name}</small></p>
@@ -23,16 +24,23 @@
               {if $permit == 1} 
                 {include 'templates/productEdit.tpl'}
               {/if}
-              {include 'templates/coment.tpl'}
             {/if}
           </div>
         </div>
       </div>
     </div>
+    {include 'templates/vue/comments.vue'}
+    {if isset($userLogged)}
+      <input type="hidden" id="user" value="{$user_id}">Escribe un comentario: </input> 
+      <input type="hidden" id="permit" value="{$permit}"></input> 
+      {include 'templates/vue/formComment.vue'}
+    {else}
+    <input type="hidden" id="user" value="0">Registrate para dejar un comentario.</input> 
+    <input type="hidden" id="permit" value="0"></input> 
+    {/if}
   </div>
+  <script src="js/comments.js"></script>
 </div>
 
-
-{include 'templates/footer.tpl'} 
 
 

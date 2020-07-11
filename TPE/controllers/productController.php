@@ -3,6 +3,7 @@
 include_once('models/ProductModel.php');
 include_once('views/productView.php');
 include_once('views/errorView.php');
+include_once('models/userModel.php');
 
 class ProductController {
 
@@ -10,12 +11,14 @@ class ProductController {
     private $view;
     private $collModel;
     private $errorView;
+    private $userModel;
   
     public function __construct() {
         $this->model = new productModel();
         $this->view = new productView();
         $this->collModel = new collectionModel();
         $this->helper = new authhelper();
+        $this->userModel = new userModel();
     }
 
     // Muestra todos los productos
@@ -44,12 +47,16 @@ class ProductController {
         $collections = $this->collModel->getAll();
         $userLogged = AuthHelper::checkLoggedIn();
         if($userLogged == true){
+            $userData = AuthHelper::getUserData();
+            $username = ($userData["userName"]);
+            $user = $this->userModel->getUserByUsername($username);
+            $id_user = $user->id_user;
             $permitAdmin = AuthHelper::checkAdmin();
             if($permitAdmin == 1){
-                $this->view->showProductDetail($product,$collections,$userLogged,$permitAdmin);
+                $this->view->showProductDetail($product,$collections,$userLogged,$permitAdmin,$id_user);
             }
             else{
-                $this->view->showProductDetail($product,$collections,$userLogged);
+                $this->view->showProductDetail($product,$collections,$userLogged,null,$id_user);
             }
         }
         else{
